@@ -25,7 +25,7 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
       expect(returned_json.length).to eq 2
       expect(returned_json[0]["name"]).to eq "Clippy"
       expect(returned_json[0]["description"]).to eq "Unacceptably helpful word wizard"
-      expect(returend_json[1]["name"]).to eq "Microsoft"
+      expect(returned_json[1]["name"]).to eq "Microsoft"
     end
   end
 end
