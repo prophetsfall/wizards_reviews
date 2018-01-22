@@ -1,0 +1,2 @@
+class StaticViewsController < ApplicationController
+end
