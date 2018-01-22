@@ -8,3 +8,13 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+// import PropTypes from 'prop-types'
+import App from '../react/containers/app'
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+)
