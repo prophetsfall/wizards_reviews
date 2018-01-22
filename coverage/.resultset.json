@@ -1,0 +1,50 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/models/wizard.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/models/user.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/controllers/WizardsController.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/controllers/static_views_controller.rb": [
+        0,
+        0
+      ],
+      "/Users/jameshartman/Launch/group-project/wizards_reviews/app/controllers/api/v1/wizards_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1516651262
+  }
+}
