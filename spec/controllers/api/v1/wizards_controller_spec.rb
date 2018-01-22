@@ -5,13 +5,13 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     name: "Clippy",
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
-    created_by: 2
+    creator_id: 2
     )}
   let!(:install) { Wizard.create(
     name: "Microsoft",
     description: "Installation Wizard",
     img_url: "www.microsoft.com",
-    created_by: 2
+    creator_id: 2
   )}
 
   describe "GET#index" do

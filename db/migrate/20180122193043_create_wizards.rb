@@ -4,7 +4,7 @@ class CreateWizards < ActiveRecord::Migration[5.1]
       t.string :name, null: false, index: true
       t.string :img_url
       t.text :description, null: false
-      t.integer :created_by
+      t.integer :creator_id
 
       t.timestamps
     end

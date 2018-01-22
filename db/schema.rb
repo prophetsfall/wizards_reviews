@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180122193043) do
     t.string "name", null: false
     t.string "img_url"
     t.text "description", null: false
-    t.integer "created_by"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_wizards_on_name"
