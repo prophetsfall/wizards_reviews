@@ -7,6 +7,12 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     img_url: "www.clippy.com",
     created_by: 2
     )}
+  let!(:install) { Wizard.create(
+    name: "Microsoft",
+    description: "Installation Wizard",
+    img_url: "www.microsoft.com",
+    created_by: 2
+  )}
 
   describe "GET#index" do
     it "should return our wizards" do
@@ -15,6 +21,11 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
+
+      expect(returned_json.length).to eq 2
+      expect(returned_json[0]["name"]).to eq "Clippy"
+      expect(returned_json[0]["description"]).to eq "Unacceptably helpful word wizard"
+      expect(returend_json[1]["name"]).to eq "Microsoft"
     end
   end
 end
