@@ -10,6 +10,7 @@ class WizardsContainer extends Component {
     }
   }
   componentDidMount() {
+
     fetch('/api/v1/wizards')
     .then(response => {
       if (response.ok) {
