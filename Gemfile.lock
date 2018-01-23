@@ -60,6 +60,7 @@ GEM
       term-ansicolor
       thor
     crass (1.0.3)
+    database_cleaner (1.6.2)
     devise (4.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -239,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coveralls
+  database_cleaner
   devise
   factory_bot
   foundation-rails (~> 5.0)
