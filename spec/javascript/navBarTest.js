@@ -1,5 +1,5 @@
 import NavBar from '../../app/javascript/react/components/NavBar.js'
-import BackButton from '../../app/javascript/react/components/BackButton.js'
+// import BackButton from '../../app/javascript/react/components/BackButton.js'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
