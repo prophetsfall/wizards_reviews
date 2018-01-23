@@ -34,21 +34,14 @@ describe('WizardsContainer', ()=>{
       ]
     })
   });
-  // let wrapper
-  // beforeEach(()=>{
-  //
-  //   wrapper.setState({
-  //     name: 'Ian'
-  //     wizards: [
-  //       {name: 'Ian', description: 'A description'},
-  //       {name: 'James', description: 'A description'}
-  //     ]
-  //   })
-  // })
+
   it('Should render Wizard components with the given state', ()=>{
 
     expect(wrapper.find(Wizard).at(0).props()).toEqual({name: 'Ian', description: "A description"})
     expect(wrapper.find(Wizard).at(1).props().name).toEqual('James')
     // .toBePresent();
+  })
+  it('Should fetch wizard data and save it to state', ()=>{
+    
   })
 })
