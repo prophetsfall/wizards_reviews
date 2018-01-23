@@ -1,8 +1,9 @@
 import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import NavBar from '../components/navbar'
+import NavBar from '../components/navbar';
 
-import WizardsContainer from './WizardsContainer'
+import WizardsContainer from './WizardsContainer';
+import WizardShow from './WizardShow'
 
 const App = props => {
 
@@ -11,8 +12,8 @@ const App = props => {
     <Router history={browserHistory}>
       <Route path='/' component={NavBar} >
         <IndexRoute component={WizardsContainer} />
+        <Route path='/wizards/:name' component={WizardShow} />
       </Route>
-      <WizardsContainer />
     </Router>
   )
 }

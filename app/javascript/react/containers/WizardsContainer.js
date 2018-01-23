@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import WizardTile from '../components/WizardTile'
+
+import WizardTile from '../components/WizardTile';
 
 
 class WizardsContainer extends Component {
@@ -34,7 +35,7 @@ class WizardsContainer extends Component {
          <WizardTile
            key={wizard.name}
            name={wizard.name}
-           description = {wizard.description}
+           description={wizard.description}
          />
        )
     })
