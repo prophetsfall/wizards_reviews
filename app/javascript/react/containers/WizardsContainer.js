@@ -17,10 +17,19 @@ class WizardsContainer extends Component {
       this.setState({ wizards: json})
     })
   }
+  // add event handler on change 
 
     }
   }
   render(){
-
+     let wizardObjects = this.state.wizards.map((wizard) => {
+       return(
+         <Wizard
+           key = {wizard.name}
+           name = {wizard.name}
+           description = {wizard.description}
+         />
+       )
+    })
   }
 }
