@@ -16,10 +16,8 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
       expect(returned_json["users"].length).to eq 3
-
     end
-  end
-  describe "GET#index" do
+
     it "should not return a list of all the users to non-admin" do
       @request.env["devise.mapping"] = Devise.mappings[:admin]
       admin = FactoryBot.create(:user, role: "admin")
@@ -32,6 +30,5 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response.status).to eq 422
     end
   end
-
 
 end

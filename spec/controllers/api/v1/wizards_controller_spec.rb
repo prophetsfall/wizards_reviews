@@ -44,11 +44,13 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
       it "should return our review" do
         sign_in :user, user1
         get :show, params:{ id: clippy.id }
-        returned_json = JSON.parse(response.body)
-
+        returned_json = JSON.parse(response.body)\
         expect(response.status).to eq 200
         expect(response.content_type).to eq("application/json")
-        expect(returned_json)
+        
+        expect(returned_json["wizard"]["name"]).to eq "Clippy"
+        expect(returned_json["reviews"][0]["body"]).to eq "Clippy is not ideal."
+
       end
     end
   end
