@@ -1,4 +1,4 @@
-import NavBar from '../../app/javascript/react/components/navbar.js'
+import NavBar from '../../app/javascript/react/components/NavBar.js'
 import BackButton from '../../app/javascript/react/components/BackButton.js'
 
 import { shallow, mount } from 'enzyme';
@@ -25,9 +25,6 @@ describe('NavBar', () => {
       <NavBar />
     )
   });
-  it('Should have a h1 tag', () => {
-    expect(wrapper.find('h1')).toBePresent();
-  })
 
   it('Should have a back button', () => {
     expect(wrapper.find(BackButton)).toBePresent();

@@ -1,5 +1,4 @@
-// import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
-import Wizard from '../../app/javascript/react/components/WizardTile'
+import WizardTile from '../../app/javascript/react/components/WizardTile'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
@@ -22,7 +21,7 @@ describe('WizardTile', ()=>{
   beforeEach(() => {
     jasmineEnzyme();
     wrapper = mount(
-      <Wizard />
+      <WizardTile />
     )
     wrapper.setProps({name: 'Ian', description: 'A description'})
   });

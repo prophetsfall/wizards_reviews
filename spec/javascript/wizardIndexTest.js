@@ -1,5 +1,5 @@
 import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
-import Wizard from '../../app/javascript/react/components/WizardTile'
+import WizardTile from '../../app/javascript/react/components/WizardTile'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
@@ -37,8 +37,8 @@ xdescribe('WizardsContainer', ()=>{
         {name: 'James', description: 'A description'}
       ]
     })
-    expect(wrapper.find(Wizard).at(0).props()).toEqual({name: 'Ian', description: "A description"})
-    expect(wrapper.find(Wizard).at(1).props().name).toEqual('James')
+    expect(wrapper.find(WizardTile).at(0).props()).toEqual({name: 'Ian', description: "A description"})
+    expect(wrapper.find(WizardTile).at(1).props().name).toEqual('James')
     // .toBePresent();
   })
   it('Should fetch wizard data and save it to state', ()=>{

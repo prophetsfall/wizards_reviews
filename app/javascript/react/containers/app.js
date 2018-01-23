@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import NavBar from '../components/navbar'
+import NavBar from '../components/NavBar'
 
 import WizardsContainer from './WizardsContainer'
 
