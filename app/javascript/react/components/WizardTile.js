@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Wizard = (props) => {
+const WizardTile = (props) => {
    return(
      <div>
        <ul>
@@ -11,4 +11,4 @@ const Wizard = (props) => {
    )
 }
 
-export default Wizard
+export default WizardTile

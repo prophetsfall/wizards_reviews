@@ -1,4 +1,4 @@
-import Wizard from '../../app/javascript/react/components/WizardComponent'
+import WizardTile from '../../app/javascript/react/components/WizardTile'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
@@ -16,12 +16,12 @@ let requireAll = requireContext => {
   requireContext.keys().forEach(requireContext);
 };
 
-describe('WizardComponent', ()=>{
+describe('WizardTile', ()=>{
   let wrapper
   beforeEach(() => {
     jasmineEnzyme();
     wrapper = mount(
-      <Wizard />
+      <WizardTile />
     )
     wrapper.setProps({name: 'Ian', description: 'A description'})
   });
