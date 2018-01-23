@@ -10,10 +10,13 @@ class WizardsContainer extends Component {
     }
   }
   componentDidMount() {
-    fetch(`api/v1/index`)
-    .then(response => response.json())
+    fetch('api/v1/wizards')
+    .then(response => {
+      debugger;
+      response.json()
+    })
     .then(json => {
-      this.setState({ wizards: json})
+      this.setState({ wizards: 'test'})
     })
   }
 
