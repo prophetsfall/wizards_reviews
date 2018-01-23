@@ -1,12 +1,12 @@
-import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
+// import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
 import Wizard from '../../app/javascript/react/components/WizardComponent'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
 import React from 'react';
-import 'jasmine-ajax';
+// import 'jasmine-ajax';
 
-import fetch from 'isomorphic-fetch'
+// import fetch from 'isomorphic-fetch'
 
 Object.assign(global, {
   jasmineEnzyme,
@@ -14,8 +14,6 @@ Object.assign(global, {
   React,
   shallow,
 });
-
-
 
 // function to require all modules for a given context
 let requireAll = requireContext => {
@@ -27,9 +25,14 @@ describe('WizardComponent', ()=>{
   beforeEach(() => {
     jasmineEnzyme();
     wrapper = mount(
-      <Wizard/>
+      <Wizard />
     )
+    wrapper.setProps({name: 'Ian', description: 'A description'})
   });
-  
+
+  it('Should return html with the data from props', () => {
+    expect(wrapper.find('li').first()).toHaveText('Ian')
+    expect(wrapper.find('li').at(1)).toHaveText('A description')
+  })
 
 })
