@@ -7,9 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :wizards, through: :reviews
 
-
   def admin?
     role == "admin"
   end
-
 end

@@ -40,11 +40,9 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
       end
     end
 
-
-
     describe "GET#show" do
       it "should return our review" do
-        sign_in :user, user1 
+        sign_in :user, user1
         get :show, params:{ id: clippy.id }
         returned_json = JSON.parse(response.body)
 
