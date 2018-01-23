@@ -30,5 +30,4 @@ describe('WizardComponent', ()=>{
     expect(wrapper.find('li').first()).toHaveText('Ian')
     expect(wrapper.find('li').at(1)).toHaveText('A description')
   })
-
 })
