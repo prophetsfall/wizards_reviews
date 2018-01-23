@@ -11,4 +11,14 @@ const Wizard = (props) => {
    )
 }
 
-export default Wizard
+  return(
+    <div>
+      <ul>
+        <li>{props.name}<li>
+        <li>{props.description}<li>
+      </ul>
+    </div>
+
+  )
+}
+
