@@ -38,6 +38,7 @@ describe('WizardsContainer', ()=>{
         {name: 'James', description: 'A description'}
       ]
     })
+    debugger
     expect(wrapper.find(Wizard).at(0).props()).toEqual({name: 'Ian', description: "A description"})
     expect(wrapper.find(Wizard).at(1).props().name).toEqual('James')
     // .toBePresent();
