@@ -41,6 +41,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -58,4 +59,3 @@ gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.2'
 
 gem 'jquery-rails'
-

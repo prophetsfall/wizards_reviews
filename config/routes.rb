@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :wizards, only: [:index]
       resources :reviews, only: [:index]
+      resources :users, only: [:index]
+
     end
   end
+  resources :users
+  resources :wizards
+  resources :reviews
 end
