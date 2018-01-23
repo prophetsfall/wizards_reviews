@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 // import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+//
+import WizardsContainer from './WizardsContainer'
 
 class App extends Component {
   constructor(props){
@@ -11,7 +13,7 @@ class App extends Component {
   render(){
     return(
       <div>
-        <h1>Hello from the app container</h1>
+        <WizardsContainer />
       </div>
     )
   }
