@@ -10,6 +10,7 @@ class WizardsContainer extends Component {
     }
   }
   componentDidMount() {
+<<<<<<< HEAD
     fetch('api/v1/wizards')
     .then(response => {
       debugger;
@@ -17,7 +18,23 @@ class WizardsContainer extends Component {
     })
     .then(json => {
       this.setState({ wizards: 'test'})
+=======
+    fetch('/api/v1/wizards')
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
     })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({ wizards: body})
+>>>>>>> origin/master
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
