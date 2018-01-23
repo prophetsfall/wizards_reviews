@@ -1,5 +1,5 @@
 import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
-import Wizard from '../../app/javascript/react/components/WizardComponent'
+import Wizard from '../../app/javascript/react/components/WizardTile'
 
 import { shallow, mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
