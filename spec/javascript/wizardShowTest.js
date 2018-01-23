@@ -6,6 +6,8 @@ import jasmineEnzyme from 'jasmine-enzyme';
 import React from 'react';
 import 'jasmine-ajax';
 
+import fetch from 'isomorphic-fetch'
+
 Object.assign(global, {
   jasmineEnzyme,
   mount,
@@ -20,28 +22,14 @@ let requireAll = requireContext => {
   requireContext.keys().forEach(requireContext);
 };
 
-describe('WizardsContainer', ()=>{
+describe('WizardComponent', ()=>{
   let wrapper
   beforeEach(() => {
     jasmineEnzyme();
     wrapper = mount(
-      <WizardsContainer/>
+      <Wizard/>
     )
-    wrapper.setState({
-      wizards: [
-        {name: 'Ian', description: 'A description'},
-        {name: 'James', description: 'A description'}
-      ]
-    })
   });
+  
 
-  it('Should render Wizard components with the given state', ()=>{
-
-    expect(wrapper.find(Wizard).at(0).props()).toEqual({name: 'Ian', description: "A description"})
-    expect(wrapper.find(Wizard).at(1).props().name).toEqual('James')
-    // .toBePresent();
-  })
-  it('Should fetch wizard data and save it to state', ()=>{
-    
-  })
 })

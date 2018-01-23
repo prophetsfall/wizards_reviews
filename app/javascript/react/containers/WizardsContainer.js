@@ -5,24 +5,18 @@ import Wizard from '../components/WizardComponent'
 class WizardsContainer extends Component {
   constructor(props){
     super(props);
-    this.state={
+    this.state= {
       wizards: []
-
     }
-    componentDidMount() {
-
-    // FETCH ARTICLE BY ID
+  }
+  componentDidMount() {
     fetch(`api/v1/index`)
     .then(response => response.json())
     .then(json => {
-
       this.setState({ wizards: json})
     })
   }
-  // add event handler on change
 
-    }
-  }
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
        return(
@@ -33,5 +27,12 @@ class WizardsContainer extends Component {
          />
        )
     })
+    return(
+      <div>
+        {wizardObjects}
+      </div>
+    )
   }
 }
+
+export default WizardsContainer

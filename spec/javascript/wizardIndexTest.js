@@ -1,0 +1,63 @@
+import WizardsContainer from '../../app/javascript/react/containers/WizardsContainer'
+import Wizard from '../../app/javascript/react/components/WizardComponent'
+
+import { shallow, mount } from 'enzyme';
+import jasmineEnzyme from 'jasmine-enzyme';
+import React from 'react';
+import 'jasmine-ajax';
+
+import fetch from 'isomorphic-fetch'
+
+Object.assign(global, {
+  jasmineEnzyme,
+  mount,
+  React,
+  shallow,
+});
+
+
+
+// function to require all modules for a given context
+let requireAll = requireContext => {
+  requireContext.keys().forEach(requireContext);
+};
+
+describe('WizardsContainer', ()=>{
+  let wrapper
+  beforeEach(() => {
+    jasmineEnzyme();
+    wrapper = mount(
+      <WizardsContainer/>
+    )
+  });
+
+  it('Should render Wizard components with the given state', ()=>{
+    wrapper.setState({
+      wizards: [
+        {name: 'Ian', description: 'A description'},
+        {name: 'James', description: 'A description'}
+      ]
+    })
+    expect(wrapper.find(Wizard).at(0).props()).toEqual({name: 'Ian', description: "A description"})
+    expect(wrapper.find(Wizard).at(1).props().name).toEqual('James')
+    // .toBePresent();
+  })
+  it('Should fetch wizard data and save it to state', ()=>{
+  let data = {
+    wizards: [
+      {name: 'Ian', description: 'A description'},
+      {name: 'James', description: 'A description'}
+    ]
+  }
+  let responseBody = JSON.stringify(data);
+  let response = new Response(responseBody, {
+    status: 200,
+    statusText: 'OK',
+    headers: { 'Content-Type': 'application/json' }
+  });
+  let responsePromise = Promise.resolve(response);
+
+  spyOn(global, 'fetch').and.returnValue(responsePromise);
+  expect(wrapper.state()).toEqual(data)
+  })
+})
