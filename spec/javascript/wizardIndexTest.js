@@ -22,7 +22,7 @@ let requireAll = requireContext => {
   requireContext.keys().forEach(requireContext);
 };
 
-describe('WizardsContainer', ()=>{
+xdescribe('WizardsContainer', ()=>{
   let wrapper
   beforeEach(() => {
     jasmineEnzyme();
