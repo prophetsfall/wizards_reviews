@@ -3,6 +3,7 @@ import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import NavBar from '../components/NavBar'
 import WizardShowContainer from './WizardShowContainer'
 import WizardsContainer from './WizardsContainer'
+import WizardTile from '../components/WizardTile'
 
 const App = props => {
 
