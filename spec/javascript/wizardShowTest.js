@@ -23,13 +23,11 @@ describe('WizardShow', ()=>{
    wrapper = mount(
      <WizardShow />
    )
-   wrapper.setProps({name: 'Ian', description: 'A description', img_url:"www.google.com", rating: 20})
+   wrapper.setProps({ name: 'Ian', description: 'A description', img_url:"www.google.com", rating: 20})
  });
 
  it('Should return html with the data from props', () => {
-   expect(wrapper.find('h1').first()).toHaveText('Ian')
-   expect(wrapper.find('p').at(1)).toHaveText('A description')
-   expect(wrapper.find('img').at(1)).toHaveText('google')
-
+   expect(wrapper.find('h1').at(0)).toHaveText('Ian')
+   expect(wrapper.find('p').at(0)).toHaveText('A description')
  })
 })
