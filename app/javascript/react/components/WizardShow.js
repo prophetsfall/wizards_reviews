@@ -3,6 +3,7 @@ import ReviewTile from './ReviewTile'
 
 const WizardShow = (props) => {
   let reviews = props.reviews.map(review => {
+    
     return(
       <ReviewTile
       key={review.id}
@@ -13,6 +14,7 @@ const WizardShow = (props) => {
     )
   })
 return(
+<div>
   <div className="wizard-show-component">
     <h1>{props.name}</h1>
     <img src= {`${props.imgUrl}`} alt=""/>
@@ -23,6 +25,7 @@ return(
 
   <div>
   {reviews}
+  </div>
   </div>
 )
 }
