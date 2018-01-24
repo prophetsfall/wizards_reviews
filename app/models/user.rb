@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :wizards, through: :reviews
+  validates :user_name, presence: true, uniqueness: true
 
   def admin?
     role == "admin"
