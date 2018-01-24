@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import WizardTile from '../components/WizardTile'
+
+import WizardTile from '../components/WizardTile';
 
 
 class WizardsContainer extends Component {
@@ -10,7 +11,6 @@ class WizardsContainer extends Component {
     }
   }
   componentDidMount() {
-
     fetch('/api/v1/wizards')
     .then(response => {
       if (response.ok) {
@@ -28,14 +28,13 @@ class WizardsContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
        return(
          <WizardTile
            key={wizard.name}
            name={wizard.name}
-           description = {wizard.description}
+           description={wizard.description}
          />
        )
     })
