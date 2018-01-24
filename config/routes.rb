@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       resources :users, only: [:index]
     end
   end
-  
-  resources :wizards, only: [:index]
+
+  resources :wizards, only: [:index, :show]
 end
