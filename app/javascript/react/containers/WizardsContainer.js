@@ -11,7 +11,6 @@ class WizardsContainer extends Component {
     }
   }
   componentDidMount() {
-
     fetch('/api/v1/wizards')
     .then(response => {
       if (response.ok) {
@@ -29,12 +28,12 @@ class WizardsContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
        return(
          <WizardTile
-           key={wizard.name}
+           key={wizard.id}
+           id={wizard.id}
            name={wizard.name}
            description={wizard.description}
          />

@@ -13,7 +13,7 @@ const App = props => {
         <IndexRoute component={WizardsContainer} />
 
       </Route>
-      <Route path='/wizards/:id' component={WizardShowContainer}/>
+      <Route path='/wizards/:name' component={WizardShowContainer}/>
       <WizardsContainer />
     </Router>
   )
