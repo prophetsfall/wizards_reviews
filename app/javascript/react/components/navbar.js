@@ -13,3 +13,6 @@ const NavBar = (props) => {
   )
 }
 export default NavBar;
+
+
+let foo
