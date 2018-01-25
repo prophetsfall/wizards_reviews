@@ -7,7 +7,6 @@ import WizardTile from '../components/WizardTile'
 
 const App = props => {
 
-
   return(
     <Router history={browserHistory}>
       <Route path='/' component={NavBar} >
