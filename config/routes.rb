@@ -11,5 +11,4 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'static_views#index' #via: :all
-end
+  get '*path', to: 'static_views#index'
