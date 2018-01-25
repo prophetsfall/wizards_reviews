@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :wizards, only: [:index, :show]
+  resources :wizards, only: [:index, :show, :create, :new]
 end
