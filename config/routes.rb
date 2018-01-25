@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :wizards
+  get '*path', to: 'static_views#index'
+
 end

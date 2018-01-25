@@ -44,10 +44,10 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json.length).to eq 2
-      expect(returned_json[0]["name"]).to eq "Clippy"
-      expect(returned_json[0]["description"]).to eq "Unacceptably helpful word wizard"
-      expect(returned_json[1]["name"]).to eq "Microsoft"
+      expect(returned_json["wizards"].length).to eq 2
+      expect(returned_json["wizards"][0]["name"]).to eq "Clippy"
+      expect(returned_json["wizards"][0]["description"]).to eq "Unacceptably helpful word wizard"
+      expect(returned_json["wizards"][1]["name"]).to eq "Microsoft"
     end
   end
 
