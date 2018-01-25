@@ -24,7 +24,6 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({ wizard: body.wizard })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
