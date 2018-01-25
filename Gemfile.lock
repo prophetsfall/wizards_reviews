@@ -56,14 +56,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-
     carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-
     case_transform (0.2)
-
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     coveralls (0.7.1)
@@ -84,6 +81,10 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.0)
     excon (0.60.0)
     execjs (2.7.0)
@@ -279,6 +280,7 @@ DEPENDENCIES
   coveralls
   database_cleaner
   devise
+  dotenv-rails
   factory_bot
   fog-aws
   foundation-rails (~> 5.0)
