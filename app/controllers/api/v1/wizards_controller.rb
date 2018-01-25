@@ -17,7 +17,7 @@ class Api::V1::WizardsController < ApplicationController
   end
 
   def show
-    @wizard = Wizard.find_by(name: params[:id])
+    @wizard = Wizard.find(params[:id])
     render json: { wizard: @wizard, reviews: @wizard.reviews }
   end
 

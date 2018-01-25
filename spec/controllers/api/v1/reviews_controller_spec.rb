@@ -11,7 +11,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     creator_id: user1.id
     )
   }
-  xdescribe 'POST#create' do
+  describe 'POST#create' do
     it 'should return a json object of the review with a 200 response if succesful'   do
       sign_in :user, user2
 
