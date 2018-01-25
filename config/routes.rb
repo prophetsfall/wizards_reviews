@@ -12,3 +12,4 @@ Rails.application.routes.draw do
   end
 
   get '*path', to: 'static_views#index'
+end
