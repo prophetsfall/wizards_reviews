@@ -14,9 +14,22 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    review = Review.find(review_params[:id])
+    if current_user.id == review_params[:user_id]
+      if review.update
+        render json: { wizard: wizard , review: review_params }
+      else
+        render json: { wizard: wizard , review: review_params, errors: new_review.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { wizard: wizard , review: review_params, errors: "Access Denied" }, status: :unprocessable_entity
+    end
+  end
+
   protected
 
   def review_params
-    params.require(:review).permit(:body, :wizard_id, :user_id, :rating)
+    params.require(:review).permit(:body, :wizard_id, :user_id, :rating, :id)
   end
 end
