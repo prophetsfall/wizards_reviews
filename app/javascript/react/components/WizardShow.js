@@ -13,7 +13,7 @@ return(
   </div>
 
   <div>
-  {reviews}
+  {props.reviews}
   </div>
   </div>
 )

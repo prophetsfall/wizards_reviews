@@ -16,7 +16,9 @@ class WizardsController < ApplicationController
     @wizard = Wizard.new(wizards_params)
     if current_user
       if @wizard.save
-        redirect_to "/wizards/#{@wizard.name}"
+        # redirect_to wizard_path(@wizard)
+        # binding.pry
+        redirect_to wizard_path(@wizard)
         flash[:notice] = 'Wizards added successfully'
       else
         flash[:notice] = 'Wizards add failed'
