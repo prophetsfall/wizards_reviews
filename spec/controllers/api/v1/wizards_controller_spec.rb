@@ -51,7 +51,7 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     end
   end
 
-  describe "GET#show" do
+  xdescribe "GET#show" do
     it "should return our review" do
       sign_in :user, user1
       get :show, params:{ id: clippy.id }
@@ -64,7 +64,7 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     end
   end
 
-  describe "POST#create" do
+  xdescribe "POST#create" do
     it "should return a json object of the new wizard" do
       sign_in :user, user1
       post :create, params: { wizard: { name: clippy1.name, description: clippy1.description, img_url: clippy1.img_url, creator_id: clippy1.creator_id } }

@@ -15,7 +15,10 @@ describe 'New wizard Form' do
 
     fill_in 'Name', with: 'Mr McGee'
     fill_in 'Description', with: "He's a good wizard"
-    click_button "Add wizard"
+
+    click_button "Add Wizard"
+
+    expect(page).to have_content 'Wizards added successfully'
   end
   scenario 'user submits invalid form' do
 

@@ -5,7 +5,7 @@ class Api::V1::WizardsController < ApplicationController
   def create
     new_wizard = Wizard.new(wizard_params)
 
-    if current_user.admin?
+    if current_user
       if new_wizard.save
         render json: { wizard: new_wizard, reviews: [] }
       else
