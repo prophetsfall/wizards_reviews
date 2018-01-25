@@ -84,4 +84,37 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
 
     end
   end
+
+  describe "PATCH#update" do
+    it "should return a json object of the updated wizard" do
+      sign_in :user, user1
+      patch :update, params: { id: clippy.id, wizard: { name: "Clippy1", description: "Really he's not that bad once you get to know him", img_url: "www.clippy.com", creator_id: user1.id } }
+
+      expect(response.status).to eq 200
+      expect(response.content_type).to eq("application/json")
+      returned_json = JSON.parse(response.body)
+
+      expect(returned_json["wizard"]["description"]).to eq "Really he's not that bad once you get to know him"
+    end
+
+    it "should return a status of 422 if form is not editted correctly" do
+      sign_in :user, user1
+      patch :update, params: { id: clippy.id, wizard: { name: "Clippy1", description: "", img_url: "www.clippy.com", creator_id: user1.id } }
+
+      expect(response.status).to eq 422
+      expect(response.content_type).to eq("application/json")
+      returned_json = JSON.parse(response.body)
+      expect(returned_json["errors"][0]).to eq "Description can't be blank"
+    end
+
+    it "should return a status of 401 if user is not an admin" do
+      sign_in :user, user2
+      patch :update, params: { id: clippy.id, wizard: { name: "Clippy1", description: "Really he's not that bad once you get to know him", img_url: "www.clippy.com", creator_id: user1.id } }
+
+      expect(response.status).to eq 401
+      expect(response.content_type).to eq("application/json")
+      returned_json = JSON.parse(response.body)
+      expect(returned_json["errors"]).to eq "Access Denied"
+    end
+  end
 end
