@@ -1,17 +1,16 @@
 class Api::V1::ReviewsController < ApplicationController
-  
+
   def create
-    new_review = Review.new(review_params)
+    wizard = Wizard.find(review_params[:wizard_id])
     if user_signed_in?
-      new_review.wizard_id = params[:review][:wizard_id]
-      new_review.user_id = params[:review][:user_id]
+      new_review = Review.new(review_params.merge({user_id: current_user.id}))
       if new_review.save
         render json: { review: review_params }
       else
         render json: { review: review_params, errors: new_review.errors.full_messages }, status: :unprocessable_entity
       end
     else
-      render json: { review: review_params, errors: "Access Denied" }, status: 401
+      render json: { errors: "Access Denied" }, status: 401
     end
   end
 
@@ -31,6 +30,6 @@ class Api::V1::ReviewsController < ApplicationController
   protected
 
   def review_params
-    params.require(:review).permit(:body, :rating)
+    params.require(:review).permit(:body, :rating, :user_id, :wizard_id)
   end
 end

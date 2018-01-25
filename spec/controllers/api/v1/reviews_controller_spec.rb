@@ -45,7 +45,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response.status).to eq 401
       expect(response.content_type).to eq("application/json")
       expect(returned_json["errors"]).to eq "Access Denied"
-      expect(returned_json["review"]["body"]).to eq "Clippy is not ideal."
+
     end
   end
 
