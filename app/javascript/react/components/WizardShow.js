@@ -1,7 +1,6 @@
 import React from 'react';
 
 const WizardShow = (props) => {
-  debugger
 return(
   <div className="wizard-show-component">
     <h1>{props.name}</h1>
