@@ -17,8 +17,8 @@ class Api::V1::ReviewsController < ApplicationController
 
     review = Review.find(review_params[:id])
     if current_user.id == review.user_id
-      if review.update
-        render json: { wizard: wizard , review: review_params }
+      if review.update(review_params)
+        render json: { review: review_params }
       else
 
         render json: { review: review_params, errors: new_review.errors.full_messages }, status: :unprocessable_entity
