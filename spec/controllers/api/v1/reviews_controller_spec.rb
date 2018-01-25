@@ -62,7 +62,20 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(response.content_type).to eq("application/json")
 
       expect(returned_json["review"]["body"]).to eq "cow"
-      expect(returned_json["review"]["rating"]).to eq 20
+      expect(returned_json["review"]["rating"]).to eq "20"
+    end
+
+    it 'should return a status of 422 if form is filled out incorrectly' do
+      sign_in :user, user2
+      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
+
+      patch :update, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "", rating: 20 } }
+
+      returned_json = JSON.parse(response.body)
+      expect(response.status).to eq 422
+      expect(response.content_type).to eq("application/json")
+
+      expect(returned_json["errors"][0]).to eq "Body can't be blank"
     end
 
     it 'should return 401 if the correct user is not logged in' do
@@ -76,6 +89,5 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json["errors"]).to eq "Access Denied"
     end
 
-    it 'should return 422 when '
   end
 end
