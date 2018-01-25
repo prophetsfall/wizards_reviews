@@ -17,13 +17,13 @@ class Api::V1::WizardsController < ApplicationController
   end
 
   def show
-    @wizard = Wizard.find(params[:id])
+    @wizard = Wizard.find_by(name: params[:id])
     render json: { wizard: @wizard, reviews: @wizard.reviews }
   end
 
   protected
 
   def wizard_params
-    params.require(:wizard).permit(:name, :description, :img_url, :creator_id)
+    params.require(:wizard).permit(:id, :name, :description, :img_url, :creator_id)
   end
 end
