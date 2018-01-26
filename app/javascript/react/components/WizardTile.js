@@ -5,7 +5,7 @@ const WizardTile = (props) => {
 
    return(
      <div>
-       <Link to={`/wizards/${props.name}`}>
+       <Link to={`/wizards/${props.id}`}>
          <ul>
             <li>{props.name}</li>
             <li>{props.description}</li>

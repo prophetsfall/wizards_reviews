@@ -11,6 +11,7 @@ class WizardShowContainer extends Component {
   }
 
   componentDidMount() {
+
     let wizardId = this.props.params.name;
     fetch(`/api/v1/wizards/${wizardId}`)
     .then(response => {
@@ -24,6 +25,7 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      
       this.setState({ wizard: body.wizard })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
