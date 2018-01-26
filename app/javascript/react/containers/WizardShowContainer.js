@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import WizardShow from '../components/WizardShow';
 import ReviewTile from '../components/ReviewTile'
+import ReviewFormContainer from './ReviewFormContainer'
 
 class WizardShowContainer extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class WizardShowContainer extends Component {
       wizard: {},
       reviews: []
     }
+    this.addNewReview = this.addNewReview.bind(this)
   }
 
   componentDidMount() {
@@ -27,17 +29,46 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
       this.setState({ wizard: body.wizard, reviews: body.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+
+addNewReview(formPayload) {
+    fetch('/api/v1/reviews', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(formPayload),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      debugger
+      let newReviewsArray = this.state.reviews.concat(body)
+      this.setState({ reviews: newReviewsArray })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   render() {
+
     let reviewArray = this.state.reviews.map((review) => {
       return(
         <ReviewTile
           key={review.id}
+          body={review.body}
+          rating={review.rating}
+          userId={review.user_id}
         />
       )
     })
@@ -51,6 +82,10 @@ class WizardShowContainer extends Component {
           rating={this.state.wizard.rating}
         />
         {reviewArray}
+        <ReviewFormContainer
+          addNewReview={this.addNewReview}
+          wizardId={this.state.wizard.id}
+        />
       </div>
     )
   }
