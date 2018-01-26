@@ -1,8 +1,8 @@
 <h1>New Wizard Form</h1>
 <%= form_for(@wizard) do |f| %>
  <% if @wizard.errors.any? %>
- <div id='error_explanation'>
-   <h2><%= pluralize(@wizard.errors.count, 'error') %> prohibited this Wizard from being saved:</h2>
+ <div id="error_explanation">
+   <h2><%= pluralize(@wizard.errors.count, "error") %> prohibited this Wizard from being saved:</h2>
    <ul>
      <% @wizard.errors.full_messages.each do |msg| %>
      <li><%= msg %></li>

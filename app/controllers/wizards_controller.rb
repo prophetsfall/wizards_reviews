@@ -17,12 +17,13 @@ class WizardsController < ApplicationController
 
   def create
     if current_user
-      @wizard = Wizard.new(wizards_params.merge({ creator_id: current_user.id }))
+      @wizard = Wizard.new(wizards_params)
+      @wizard.creator_id = current_user.id
       if @wizard.save
-        redirect_to wizard_path(@wizard)
-        flash[:notice] = 'Wizards added successfully'
+        redirect_to wizard_path(@wizard.id)
+        flash[:notice] = 'Wizard added successfully'
       else
-        flash[:notice] = 'Wizards add failed'
+        flash[:notice] = 'Wizard add failed'
         render :new
       end
     else

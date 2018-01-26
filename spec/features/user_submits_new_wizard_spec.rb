@@ -13,7 +13,7 @@ describe 'New wizard Form' do
     fill_in 'Name', with: 'Mr McGee'
     fill_in 'Description', with: "He's a good wizard"
     click_button "Add Wizard"
-    expect(page).to have_content 'Wizards added successfully'
+    expect(page).to have_content 'Wizard added successfully'
   end
   scenario 'user submits invalid form' do
     visit '/'
@@ -23,7 +23,7 @@ describe 'New wizard Form' do
     click_button 'Log in'
     visit 'wizards/new'
     click_button "Add Wizard"
-    expect(page).to have_content 'Wizards add failed'
+    expect(page).to have_content 'Wizard add failed'
     expect(page).to have_content 'Name can\'t be blank'
     expect(page).to have_content 'Description can\'t be blank'
   end

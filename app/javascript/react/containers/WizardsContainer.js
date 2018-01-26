@@ -23,7 +23,7 @@ class WizardsContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ wizards: body})
+      this.setState({ wizards: body.wizards})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -33,6 +33,7 @@ class WizardsContainer extends Component {
        return(
          <WizardTile
            key={wizard.name}
+           id = {wizard.id}
            name={wizard.name}
            description={wizard.description}
          />
