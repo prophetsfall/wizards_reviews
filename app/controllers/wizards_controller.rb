@@ -2,9 +2,11 @@ class WizardsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
 
   def index; end
+
   def show
     render :index
   end
+
   def new
     if current_user
       @wizard = Wizard.new
@@ -12,12 +14,14 @@ class WizardsController < ApplicationController
       redirect_to :index
     end
   end
+
   def create
-    @wizard = Wizard.new(wizards_params)
     if current_user
+      @wizard = Wizard.new(wizards_params.merge({ creator_id: current_user.id }))
       if @wizard.save
         redirect_to wizard_path(@wizard)
         flash[:notice] = 'Wizards added successfully'
+        redirect_to wizard_path(@wizard)
       else
         flash[:notice] = 'Wizards add failed'
         render :new
@@ -27,9 +31,10 @@ class WizardsController < ApplicationController
       render :new
     end
   end
+
   protected
 
   def wizards_params
-    params.require(:wizard).permit(:name, :description, :img_url, :creator_id)
+    params.require(:wizard).permit(:name, :description, :img_url)
   end
 end
