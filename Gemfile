@@ -64,6 +64,7 @@ gem 'jquery-rails'
 gem "carrierwave"
 gem "simple_form"
 gem 'fog-aws'
+gem 'fog'
 
 gem "active_model_serializers"
 
