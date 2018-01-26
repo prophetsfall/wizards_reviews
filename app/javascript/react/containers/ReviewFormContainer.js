@@ -20,11 +20,12 @@ class ReviewFormContainer extends Component {
 
   handleSubmit() {
     let formPayload = {
-      body: this.state.bodyText,
-      rating: this.state.rating,
-      user_id: 1,  // this is a temporary hardcorde for testing puroposes, change to: props.userId,
-      wizard_id: this.props.wizardId
-    }
+      review: {
+        body: this.state.bodyText,
+        rating: this.state.rating,
+        user_id: 1,  // this is a temporary hardcorde for testing puroposes, change to: props.userId,
+        wizard_id: this.props.wizardId
+    } }
     this.props.addNewReview(formPayload)
   }
 
