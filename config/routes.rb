@@ -7,9 +7,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :wizards, only: [:index, :show]
       resources :users, only: [:index]
-      resources :reviews, only: [:create]
+      resources :reviews, only: [:create, :update]
     end
   end
 
+
   resources :wizards
+  
+  get '*path', to: 'static_views#index'
+
 end

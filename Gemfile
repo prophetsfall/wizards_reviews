@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-
+gem 'dotenv-rails'
 end
 
 group :development do
@@ -59,3 +59,11 @@ gem 'foundation-rails', '~> 5.0'
 gem 'webpacker', '~> 3.2'
 
 gem 'jquery-rails'
+
+
+gem "carrierwave"
+gem "simple_form"
+gem 'fog-aws'
+
+gem "active_model_serializers"
+
