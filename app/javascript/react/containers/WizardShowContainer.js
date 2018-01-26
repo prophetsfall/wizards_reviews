@@ -15,8 +15,6 @@ class WizardShowContainer extends Component {
     let wizardId = this.props.params.id;
     fetch(`/api/v1/wizards/${wizardId}`)
     .then(response => {
-
-
       if (response.ok) {
         return response;
       } else {
