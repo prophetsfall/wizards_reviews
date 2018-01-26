@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
 import WizardShow from '../components/WizardShow';
+import ReviewTile from '../components/ReviewTile'
 
 class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wizard: {}
+      wizard: {},
+      reviews: []
     }
   }
 
@@ -25,13 +27,20 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      
-      this.setState({ wizard: body.wizard })
+      debugger
+      this.setState({ wizard: body.wizard, reviews: body.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
+    let reviewArray = this.state.reviews.map((review) => {
+      return(
+        <ReviewTile
+          key={review.id}
+        />
+      )
+    })
     return(
       <div>
         <WizardShow
@@ -41,7 +50,7 @@ class WizardShowContainer extends Component {
           imgUrl={this.state.wizard.img_url}
           rating={this.state.wizard.rating}
         />
-
+        {reviewArray}
       </div>
     )
   }
