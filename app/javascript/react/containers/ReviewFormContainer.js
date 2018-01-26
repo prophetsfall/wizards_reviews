@@ -35,8 +35,8 @@ class ReviewFormContainer extends Component {
 
   render() {
     let passDownReviewChange = (value) => { this.reviewChange(value) }
-    let passDownSubmit = () => { this.handleSubmit() }
     let passDownRatingChange = (value) => { this.ratingChange(value) }
+    let passDownSubmit = () => { this.handleSubmit() }
 
     return(
       <div>
@@ -44,8 +44,9 @@ class ReviewFormContainer extends Component {
           bodyText={this.state.bodyText}
           rating={this.state.rating}
           passDownReviewChange={passDownReviewChange}
-          passDownSubmit={passDownSubmit}
           passDownRatingChange={passDownRatingChange}
+          passDownSubmit={passDownSubmit}
+          token={this.props.token}
         />
 
       </div>

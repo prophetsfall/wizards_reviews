@@ -35,12 +35,17 @@ class WizardShowContainer extends Component {
   }
 
 
-addNewReview(formPayload) {
+  addNewReview(formPayload) {
+
     fetch('/api/v1/reviews', {
       credentials: 'same-origin',
-      method: 'POST',
+      method: 'post',
       body: JSON.stringify(formPayload),
-      headers: { 'Content-Type': 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -53,8 +58,7 @@ addNewReview(formPayload) {
     })
     .then(response => response.json())
     .then(body => {
-      debugger
-      let newReviewsArray = this.state.reviews.concat(body)
+      let newReviewsArray = this.state.reviews.concat(body.review)
       this.setState({ reviews: newReviewsArray })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -72,6 +76,7 @@ addNewReview(formPayload) {
         />
       )
     })
+    let csrfToken = $('meta[name=csrf-token]').attr('content')
     return(
       <div>
         <WizardShow
@@ -85,6 +90,7 @@ addNewReview(formPayload) {
         <ReviewFormContainer
           addNewReview={this.addNewReview}
           wizardId={this.state.wizard.id}
+          token={csrfToken}
         />
       </div>
     )
