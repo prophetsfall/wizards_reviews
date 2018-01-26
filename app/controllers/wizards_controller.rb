@@ -21,7 +21,6 @@ class WizardsController < ApplicationController
       if @wizard.save
         redirect_to wizard_path(@wizard)
         flash[:notice] = 'Wizards added successfully'
-        redirect_to wizard_path(@wizard)
       else
         flash[:notice] = 'Wizards add failed'
         render :new
