@@ -27,6 +27,9 @@
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
+      <ul class = "left">
+        <li><%= button_to "New Wizard", new_wizard_path,method: :get %></li>
+      </ul>
     </section>
   </nav>
 
