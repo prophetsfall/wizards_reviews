@@ -31,13 +31,13 @@ class WizardsContainer extends Component {
 
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
-
        return(
          <WizardTile
            key={wizard.name}
            id = {wizard.id}
            name={wizard.name}
            imgUrl = {wizard.img_url}
+           avg_rating = {wizard.average_rating}
          />
        )
     })
