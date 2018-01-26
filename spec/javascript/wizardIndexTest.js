@@ -33,12 +33,12 @@ describe('WizardsContainer', ()=>{
   it('Should render Wizard components with the given state', ()=>{
     wrapper.setState({
       wizards: [
-        {name: 'Ian', id:1,description: 'A description'},
+        {name: 'Ian', id: 1, description: 'A description'},
         {name: 'James', description: 'A description'}
       ]
     })
 
-    expect(wrapper.find(WizardTile).at(0).props()).toEqual({name: 'Ian', description: "A description", id:1})
+    expect(wrapper.find(WizardTile).at(0).props()).toEqual({name: 'Ian', id: 1, description: "A description"})
     expect(wrapper.find(WizardTile).at(1).props().name).toEqual('James')
     // .toBePresent();
   })
