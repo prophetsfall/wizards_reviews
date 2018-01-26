@@ -23,17 +23,20 @@ class WizardsContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ wizards: body})
+
+      this.setState({ wizards: body.wizards })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
+
        return(
          <WizardTile
            key={wizard.name}
            name={wizard.name}
+           id={wizard.id}
            description={wizard.description}
          />
        )
