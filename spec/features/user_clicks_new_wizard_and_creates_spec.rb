@@ -15,7 +15,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
     click_button 'Log in'
     expect(page).to have_content("Signed in successfully")
 
-    click_button 'New Wizard'
+    click_link 'New Wizard'
     expect(page).to have_content("Name")
     expect(page).to have_content("Description")
     expect(page).to have_content("New Wizard Form")
@@ -30,7 +30,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
 
     click_button 'Log in'
 
-    click_button 'New Wizard'
+    click_link 'New Wizard'
     fill_in 'Name', with: "Mortimar"
     fill_in 'Description', with: "Mage Most Magnificint"
 
