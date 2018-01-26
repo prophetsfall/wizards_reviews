@@ -6,13 +6,13 @@ class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wizard: {}
+      wizard: {},
+      reviews: []
     }
   }
 
   componentDidMount() {
-
-    let wizardId = this.props.params.name;
+    let wizardId = this.props.params.id;
     fetch(`/api/v1/wizards/${wizardId}`)
     .then(response => {
       if (response.ok) {
@@ -25,8 +25,7 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      
-      this.setState({ wizard: body.wizard })
+      this.setState({ wizard: body.wizard, reviews: body.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -40,6 +39,7 @@ class WizardShowContainer extends Component {
           description={this.state.wizard.description}
           imgUrl={this.state.wizard.img_url}
           rating={this.state.wizard.rating}
+          reviews={this.state.reviews}
         />
 
       </div>

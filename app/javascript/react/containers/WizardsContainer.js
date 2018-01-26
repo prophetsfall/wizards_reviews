@@ -35,6 +35,7 @@ class WizardsContainer extends Component {
        return(
          <WizardTile
            key={wizard.name}
+           id = {wizard.id}
            name={wizard.name}
            id={wizard.id}
            description={wizard.description}
