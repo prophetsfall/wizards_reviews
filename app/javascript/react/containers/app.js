@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-// import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import React from 'react';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import NavBar from '../components/NavBar'
+import WizardShowContainer from './WizardShowContainer'
+import WizardsContainer from './WizardsContainer'
+import WizardTile from '../components/WizardTile'
 
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
+const App = props => {
 
-    }
-  }
-  render(){
-    return(
-      <div>
-        <h1>Hello from the app container</h1>
-      </div>
-    )
-  }
+  return(
+    <Router history={browserHistory}>
+      <Route path='/' component={NavBar} >
+        <IndexRoute component={WizardsContainer} />
+        
+        <Route path='/wizards/:name' component={WizardShowContainer}/>
+      </Route>
+      <WizardsContainer />
+    </Router>
+  )
 }
 export default App

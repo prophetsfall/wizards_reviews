@@ -3,7 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         
+
   has_many :reviews
   has_many :wizards, through: :reviews
+  validates :user_name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+
+  mount_uploader :photo, ProfilePhotoUploader
+  def admin?
+    role == "admin"
+  end
 end
