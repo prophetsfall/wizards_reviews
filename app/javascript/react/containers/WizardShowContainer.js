@@ -28,7 +28,7 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ wizard: body.wizard, reviews: body.reviews })
+      this.setState({ wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -65,7 +65,7 @@ class WizardShowContainer extends Component {
 
   render() {
 
-    let reviewArray = this.state.reviews.map((review) => {
+    let reviewArray = this.state.wizard.reviews.map((review) => {
       return(
         <ReviewTile
           key={review.id}
