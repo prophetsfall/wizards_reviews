@@ -91,7 +91,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
 
   end
-  describe "DESTROY#delete" do
+  describe "DELETE#destroy" do
     it 'removes a review from the database if the creator deletes it' do
       sign_in :user, user2
       review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )

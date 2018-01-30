@@ -41,8 +41,8 @@ class WizardsController < ApplicationController
   end
 
   def update
-    if (@current_user.id == wizard.creator_id) || current_user.role == 'admin'
-      @wizard = Wizard.find(params[:id])
+    @wizard = Wizard.find(params[:id])
+    if (current_user.id == @wizard.creator_id) || current_user.role == 'admin'
       if @wizard.update(wizard_params)
         redirect_to wizard_path(@wizard.id)
         flash[:notice] = 'Wizard updated successfully'
@@ -57,8 +57,22 @@ class WizardsController < ApplicationController
     end
   end
 
-
-
+  def destroy
+    @wizard = Wizard.find(params[:id])
+    if (current_user.id == @wizard.creator_id) || current_user.role == 'admin'
+      if @wizard.destroy
+        reviews = Review.where(wizard_id: params[:id]).delete_all
+        redirect_to wizards_path
+        flash[:notice] = "Wizard and #{reviews} deleted successfully"
+      else
+        flash[:notice] = 'Wizard deletion failed'
+        render :edit
+      end
+    else
+      flash[:notice] = "You must be signed in!"
+      redirect_to new_user_session_path
+    end
+  end
   protected
 
   def wizard_params
