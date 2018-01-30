@@ -23,7 +23,6 @@ class ReviewFormContainer extends Component {
       review: {
         body: this.state.bodyText,
         rating: this.state.rating,
-        user_id: 1,  // this is a temporary hardcorde for testing puroposes, change to: props.userId,
         wizard_id: this.props.wizardId,
     } }
     this.props.addNewReview(formPayload)
@@ -46,7 +45,6 @@ class ReviewFormContainer extends Component {
           passDownReviewChange={passDownReviewChange}
           passDownRatingChange={passDownRatingChange}
           passDownSubmit={passDownSubmit}
-          token={this.props.token}
         />
 
       </div>
