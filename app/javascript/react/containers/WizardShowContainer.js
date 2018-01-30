@@ -29,13 +29,12 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ user: body.user, wizard: body.wizard, reviews: body.reviews })
+      this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   addNewReview(formPayload) {
-
     fetch('/api/v1/reviews', {
       credentials: 'same-origin',
       method: 'post',
@@ -43,7 +42,6 @@ class WizardShowContainer extends Component {
       headers: {
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
-
       }
     })
     .then(response => {
@@ -64,8 +62,7 @@ class WizardShowContainer extends Component {
   }
 
   render() {
-
-    let reviewArray = this.state.wizard.reviews.map((review) => {
+    let reviewArray = this.state.reviews.map((review) => {
       return(
         <ReviewTile
           key={review.id}
