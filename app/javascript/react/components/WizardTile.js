@@ -8,7 +8,7 @@ const WizardTile = (props) => {
          <ul>
             <li>{props.name}</li>
          </ul>
-         <p>Average Rating: {props.avg_rating}</p>
+         <p>Average Rating: {props.avgRating}</p>
        </Link>
         <img src={`${props.imgUrl}`} alt='wizardPic'/>
      </div>
