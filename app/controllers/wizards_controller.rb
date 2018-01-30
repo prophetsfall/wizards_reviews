@@ -11,7 +11,7 @@ class WizardsController < ApplicationController
     if current_user
       @wizard = Wizard.new
     else
-      redirect_to :index
+      redirect_to new_user_session_path
     end
   end
 
@@ -28,32 +28,54 @@ class WizardsController < ApplicationController
       end
     else
       flash[:notice] = "You must be signed in!"
-      render :new
+      redirect_to new_user_session_path
     end
   end
 
   def edit
-    @wizard = Wizard.find(params[:id])
-    render :edit
-  end
-
-  def update
-    @wizard = Wizard.find(params[:wizard][:id])
-    if current_user.id == @wizard.creator_id
-      if @wizard.update(wizard_params)
-        redirect_to @wizard
-      else
-        render :edit
-      end
+    if current_user
+      @wizard = Wizard.find(params[:id])
     else
-      flash[:error] = "You can't do that on wizard television"
-      redirect_to @wizard
+      redirect_to new_user_session_path
     end
   end
 
+  def update
+    @wizard = Wizard.find(params[:id])
+    if (current_user.id == @wizard.creator_id) || current_user.role == 'admin'
+      if @wizard.update(wizard_params)
+        redirect_to wizard_path(@wizard.id)
+        flash[:notice] = 'Wizard updated successfully'
+      else
+        @wizard = @wizard.update(wizard_params)
+        flash[:notice] = 'Wizard add failed'
+        render :edit
+      end
+    else
+      flash[:notice] = "You must be signed in!"
+      redirect_to new_user_session_path
+    end
+  end
+
+  def destroy
+    @wizard = Wizard.find(params[:id])
+    if (current_user.id == @wizard.creator_id) || current_user.role == 'admin'
+      if @wizard.destroy
+        reviews = Review.where(wizard_id: params[:id]).delete_all
+        redirect_to wizards_path
+        flash[:notice] = "Wizard and #{reviews} deleted successfully"
+      else
+        flash[:notice] = 'Wizard deletion failed'
+        render :edit
+      end
+    else
+      flash[:notice] = "You must be signed in!"
+      redirect_to new_user_session_path
+    end
+  end
   protected
 
   def wizard_params
-    params.require(:wizard).permit(:name, :description, :img_url, :id, :creator_id)
+    params.require(:wizard).permit(:name, :description, :img_url)
   end
 end
