@@ -8,7 +8,10 @@ class Review < ApplicationRecord
     less_than_or_equal_to: 100
     }
     def vote_count
-      total = self.votes.length
-      self.votes
+      sum = 0
+      self.votes.each do |vote|
+        sum += vote.vote
+      end
+      sum
     end
 end
