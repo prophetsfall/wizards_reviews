@@ -7,4 +7,8 @@ class Review < ApplicationRecord
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 100
     }
+    def vote_count
+      total = self.votes.length
+      self.votes
+    end
 end
