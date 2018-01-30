@@ -60,7 +60,6 @@ const ReviewForm = (props) => {
           />
         </label>
       </div>
-      <input type="hidden" name='token' value={props.token}/>
         <div className="button-group">
           <button onClick={handleSubmit}>Submit Review</button>
         </div>
