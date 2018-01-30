@@ -3,10 +3,10 @@ class Wizard < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
-
-  def to_param
-    return self.name
-  end
+  # 
+  # def to_param
+  #   return self.name
+  # end
 
   def average_rating
     sum = 0
