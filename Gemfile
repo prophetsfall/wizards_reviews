@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-gem 'dotenv-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -51,7 +51,7 @@ gem 'pry-rails', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
 gem 'capybara', group: [:development, :test]
 gem 'launchy', group: [:development, :test]
-gem 'factory_bot', group: [:development, :test]
+gem 'factory_bot'
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'

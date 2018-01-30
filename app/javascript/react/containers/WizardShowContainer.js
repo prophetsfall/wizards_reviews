@@ -15,8 +15,7 @@ class WizardShowContainer extends Component {
   }
 
   componentDidMount() {
-
-    let wizardId = this.props.params.name;
+    let wizardId = this.props.params.id;
     fetch(`/api/v1/wizards/${wizardId}`)
     .then(response => {
       if (response.ok) {
@@ -85,6 +84,7 @@ class WizardShowContainer extends Component {
           description={this.state.wizard.description}
           imgUrl={this.state.wizard.img_url}
           rating={this.state.wizard.rating}
+          reviews={this.state.reviews}
         />
         {reviewArray}
         <ReviewFormContainer

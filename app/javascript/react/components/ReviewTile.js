@@ -1,13 +1,15 @@
 import React from 'react';
 
-const ReviewTile = (props) => {
+
+const ReviewTile = props => {
+  let body = props.body
+  let rating = props.rating
+  let created_at = props.created_at
 
   return(
     <div>
-      <ul>
-        <li> {props.body}
-        </li>
-      </ul>
+      <p> {body}</p>
+      <p> {rating}</p>
     </div>
   )
 }
