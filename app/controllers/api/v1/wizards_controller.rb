@@ -5,6 +5,7 @@ class Api::V1::WizardsController < ApplicationController
 
   def show
     @wizard = Wizard.find(params[:id])
-    render json: { wizard: @wizard, reviews: @wizard.reviews }
+    render json: Wizard.find(params[:id]), serializer: WizardShowSerializer
   end
+  # render json: Book.find(params[:id]), serializer: BookShowSerializer
 end
