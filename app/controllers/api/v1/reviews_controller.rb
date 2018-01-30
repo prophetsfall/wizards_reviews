@@ -28,6 +28,19 @@ skip_before_action :verify_authenticity_token
     end
   end
 
+  def destroy
+    destroyed_review = Review.find(params[:review][:id])
+    if user_signed_in? && (current_user.id == destroyed_review.user_id || current_user.role == 'admin')
+      if destroyed_review.destroy
+        redirect_to wizard_path(review_params[:wizard_id])
+      else
+        render json: { errors: destroyed_review.errors.full_messages }, status: :unprocessable_entity
+      end
+    else
+      render json: { errors: "Access Denied, Punk"}, status: 401
+    end
+  end
+
   protected
 
   def review_params
