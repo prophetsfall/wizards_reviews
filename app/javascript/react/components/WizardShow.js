@@ -10,9 +10,6 @@ const WizardShow = (props) => {
         <h1>{props.rating}</h1>
         <p>{props.description}</p>
       </div>
-      <div>
-        {props.reviews}
-      </div>
     </div>
   )
 }

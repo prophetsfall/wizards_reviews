@@ -43,7 +43,7 @@ class WizardShowContainer extends Component {
       headers: {
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
-
+        'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
       }
     })
     .then(response => {
@@ -65,17 +65,17 @@ class WizardShowContainer extends Component {
 
   render() {
 
-    let reviewArray = this.state.wizard.reviews.map((review) => {
+    let reviewArray = this.state.reviews.map((review) => {
       return(
         <ReviewTile
           key={review.id}
           body={review.body}
           rating={review.rating}
-          userId={review.user_id}
+          userName={review.creator_name}
         />
       )
     })
-    let csrfToken = $('meta[name=csrf-token]').attr('content')
+
     return(
       <div>
         <WizardShow
@@ -84,13 +84,11 @@ class WizardShowContainer extends Component {
           description={this.state.wizard.description}
           imgUrl={this.state.wizard.img_url}
           rating={this.state.wizard.rating}
-          reviews={this.state.reviews}
         />
         {reviewArray}
         <ReviewFormContainer
           addNewReview={this.addNewReview}
           wizardId={this.state.wizard.id}
-          token={csrfToken}
         />
       </div>
     )
