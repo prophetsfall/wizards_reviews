@@ -3,3 +3,4 @@
 
 </div>
 <%= render "/wizards/form" %>
+<p>To delete your wizard, click here <%= link_to "delete", @wizard, method: :delete, data:{confirm: "You sure?"} %></p>

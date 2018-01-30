@@ -5,17 +5,12 @@ const WizardShow = (props) => {
   let editForm = () =>{
     let editLink;
   if (props.creator_id === props.user_id) {
-      editLink = <div><a href={`/wizards/${props.id}/edit`}>Edit</a><br/>  <a href={`/wizards/${props.id}/destroy`}>Delete</a></div>
-
-
+      editLink = <a href={`/wizards/${props.id}/edit`}>Edit or Delete your Wizard here</a>
   } else {
       <p></p>
   }
   return editLink
 }
-
-
-
   return(
     <div>
       <div className="wizard-show-component">
