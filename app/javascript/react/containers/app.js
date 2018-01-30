@@ -11,7 +11,6 @@ const App = props => {
     <Router history={browserHistory}>
       <Route path='/' component={NavBar} >
         <IndexRoute component={WizardsContainer} />
-        
           <Route path='/wizards/:id' component={WizardShowContainer}/>
       </Route>
       <WizardsContainer />

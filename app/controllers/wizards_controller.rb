@@ -17,7 +17,7 @@ class WizardsController < ApplicationController
 
   def create
     if current_user
-      @wizard = Wizard.new(wizards_params)
+      @wizard = Wizard.new(wizard_params)
       @wizard.creator_id = current_user.id
       if @wizard.save
         redirect_to wizard_path(@wizard.id)
@@ -32,9 +32,28 @@ class WizardsController < ApplicationController
     end
   end
 
+  def edit
+    @wizard = Wizard.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @wizard = Wizard.find(params[:wizard][:id])
+    if current_user.id == @wizard.creator_id
+      if @wizard.update(wizard_params)
+        redirect_to @wizard
+      else
+        render :edit
+      end
+    else
+      flash[:error] = "You can't do that on wizard television"
+      redirect_to @wizard
+    end
+  end
+
   protected
 
-  def wizards_params
-    params.require(:wizard).permit(:name, :description, :img_url)
+  def wizard_params
+    params.require(:wizard).permit(:name, :description, :img_url, :id, :creator_id)
   end
 end
