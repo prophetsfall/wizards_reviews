@@ -16,6 +16,9 @@ FactoryBot.define do
     role 'member'
   end
 end
+bob = FactoryBot.create(:user)
+steve = FactoryBot.create(:user)
+jill = FactoryBot.create(:user)
 
 gandalfa = Wizard.find_or_create_by!(name: "Gandalf the White", description: "Hes got to be top ten maybe 5")
 gandalfb = Wizard.find_or_create_by!(name: "Gandalf the Grey", description: "Hes great and all but he hidding")
@@ -25,9 +28,6 @@ jafar = Wizard.find_or_create_by!(name: "Jafar", description: "Hes from aladdin"
 maurgris = Wizard.find_or_create_by!(name: "Maugris", description: "Hes enchants matter in france")
 saruman = Wizard.find_or_create_by!(name: "Saruman", description: "Hes fights Gandalf")
 
-bob = FactoryBot.create(:user)
-steve = FactoryBot.create(:user)
-jill = FactoryBot.create(:user)
 
 
 Review.find_or_create_by!(user: bob, wizard: gandalfa, body: "top ten all time for sure", rating: 100)

@@ -1,5 +1,4 @@
-class Api::V1::WizardsController < ApplicationController
-
+class UsersController < ApplicationController
   def index
     render json: Wizard.all
   end
@@ -8,5 +7,4 @@ class Api::V1::WizardsController < ApplicationController
     @wizard = Wizard.find(params[:id])
     render json: Wizard.find(params[:id]), serializer: WizardShowSerializer
   end
-  # render json: Book.find(params[:id]), serializer: BookShowSerializer
 end
