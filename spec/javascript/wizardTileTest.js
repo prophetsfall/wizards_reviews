@@ -23,11 +23,12 @@ describe('WizardTile', ()=>{
     wrapper = mount(
       <WizardTile />
     )
-    wrapper.setProps({name: 'Ian', description: 'A description'})
+    wrapper.setProps({name: 'Ian', avgRating: '81'})
   });
 
   it('Should return html with the data from props', () => {
+    console.log(wrapper.find('p').first());
     expect(wrapper.find('li').first()).toHaveText('Ian')
-    expect(wrapper.find('li').at(1)).toHaveText('A description')
+    expect(wrapper.find('p').first()).toHaveText('Average Rating: 81')
   })
 })

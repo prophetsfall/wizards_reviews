@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
-
   def create
+
     wizard = Wizard.find(review_params[:wizard_id])
     if user_signed_in?
       new_review = Review.new(review_params)
@@ -31,6 +31,6 @@ class Api::V1::ReviewsController < ApplicationController
   protected
 
   def review_params
-    params.require(:review).permit(:body, :rating, :user_id, :wizard_id)
+    params.require(:review).permit(:body, :rating, :wizard_id)
   end
 end
