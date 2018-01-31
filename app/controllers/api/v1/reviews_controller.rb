@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
-skip_before_action :verify_authenticity_token
   def create
+
     wizard = Wizard.find(review_params[:wizard_id])
     if user_signed_in?
       new_review = Review.new(review_params)
@@ -44,6 +44,6 @@ skip_before_action :verify_authenticity_token
   protected
 
   def review_params
-    params.require(:review).permit(:body, :rating, :user_id, :wizard_id)
+    params.require(:review).permit(:body, :rating, :wizard_id)
   end
 end
