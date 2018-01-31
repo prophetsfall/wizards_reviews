@@ -15,7 +15,7 @@ describe 'Wizard delete function' do
     visit "/wizards/#{wizardguy.id}/edit"
     expect(page).to have_content wizardguy.name
     click_link 'delete'
-    expect(page).to have_content 'Wizard and reviews deleted successfully'
+    expect(page).to have_content 'Wizard and 0 reviews deleted successfully'
   end
 
 end
