@@ -2,11 +2,13 @@ require 'rails_helper'
 RSpec.describe WizardsController, type: :controller do
   let!(:user1) {FactoryBot.create(:user, role: "admin")}
   let!(:user2) {FactoryBot.create(:user, role: "member")}
+  let!(:school) {MagicSchool.create(name: 'evocation')}
   let!(:clippy) { Wizard.create(
     name: "Clippy",
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
-    creator_id: user2.id
+    creator_id: user2.id,
+    magic_school: school
     )
   }
   let!(:clippy_review) {Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )}
@@ -21,7 +23,7 @@ RSpec.describe WizardsController, type: :controller do
   describe "POST#create" do
     it "should add the wizard to the database" do
       sign_in :user, user1
-      post :create, params: { wizard: { name: clippy.name, description: clippy.description, img_url: clippy.img_url } }
+      post :create, params: { wizard: { name: clippy.name, description: clippy.description, img_url: clippy.img_url, magic_school: school } }
       expect(Wizard.find(clippy.id).name).to eq 'Clippy'
     end
     it 'should not add wizard to db if user is not signed in' do

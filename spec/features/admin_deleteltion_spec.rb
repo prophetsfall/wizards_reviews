@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe 'Admin user views a list of users, wizards, and reviews. Can delete any of these' do
   let!(:user1) {FactoryBot.create(:user, role: "admin")}
-  let!(:wizardguy1) {FactoryBot.create(:wizard, creator_id: user2.id)}
+  let!(:school) {MagicSchool.create(name: 'Necromancy')}
+  let!(:wizardguy1) {FactoryBot.create(:wizard, creator_id: user2.id, magic_school: school)}
   let!(:review1) {FactoryBot.create(:review, wizard: wizardguy1, user: user1)}
   let!(:user2) {FactoryBot.create(:user, role: "member")}
-  let!(:wizardguy2) {FactoryBot.create(:wizard, creator_id: user2.id)}
+  let!(:wizardguy2) {FactoryBot.create(:wizard, creator_id: user2.id, magic_school: school)}
   let!(:review2) {FactoryBot.create(:review, wizard: wizardguy2, user: user2)}
   let!(:user3) {FactoryBot.create(:user, role: "member")}
-  let!(:wizardguy3) {FactoryBot.create(:wizard, creator_id: user2.id)}
+  let!(:wizardguy3) {FactoryBot.create(:wizard, creator_id: user2.id, magic_school: school)}
   let!(:review3) {FactoryBot.create(:review, wizard: wizardguy3, user: user3)}
 
   scenario 'signed in admin views index' do

@@ -9,6 +9,7 @@ FactoryBot.define do
     role 'member'
   end
 end
+
 FactoryBot.define do
   factory :wizard do
     sequence(:name) { |n| "wizard#{n}"}
