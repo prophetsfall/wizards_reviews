@@ -15,7 +15,7 @@ class ReviewFormContainer extends Component {
   }
 
   ratingChange(event) {
-    debugger
+    
     let value = event.target.value
     this.setState({ rating: value })
   }

@@ -1,5 +1,12 @@
 class WizardShowSerializer < ActiveModel::Serializer
-  attributes :id, :creator_id, :name, :description, :img_url, :average_rating, :user_reviews, :user
+  attributes :id,
+  :creator_id,
+  :name,
+  :description,
+  :img_url,
+  :average_rating,
+  :user_reviews,
+  :user
 
   has_many :reviews
 

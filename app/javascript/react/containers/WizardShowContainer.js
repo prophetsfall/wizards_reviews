@@ -82,7 +82,6 @@ class WizardShowContainer extends Component {
           description={this.state.wizard.description}
           imgUrl={this.state.wizard.img_url}
           rating={this.state.wizard.rating}
-          reviews={this.state.reviews}
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user.id}
         />
