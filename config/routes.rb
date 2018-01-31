@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :wizards
   resources :reviews, only: [:destroy]
   resources :users, only: [:index, :destroy]

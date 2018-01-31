@@ -63,7 +63,6 @@ class WizardShowContainer extends Component {
   }
 
   render() {
-
     let reviewArray = this.state.reviews.map((review) => {
       return(
         <ReviewTile
