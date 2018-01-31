@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   resources :wizards
+  resources :reviews, only: [:destroy]
   resources :users, only: [:index, :destroy]
   get '*path', to: 'static_views#index'
 

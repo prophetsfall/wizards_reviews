@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
   def index
-    if current_user.admin?
+    if current_user && current_user.admin?
       @wizards = Wizard.all
       @users = User.all
       @reviews = Review.all
     else
-      render json: {error: "Not authorized to use API"}, status: :unprocessable_entity
+      redirect_to wizards_path
+      flash[:notice] = "You must be signed in as an admin!"
     end
   end
 
@@ -15,11 +15,11 @@ class UsersController < ApplicationController
     @user= User.find(params[:id])
     if current_user.admin?
       if @user.destroy
-        redirect_to wizards_path
-        flash[:notice] = "Wizard and reviews deleted successfully"
+        redirect_to users_path
+        flash[:notice] = "User deleted successfully"
       else
-        flash[:notice] = 'Wizard deletion failed'
-        render :edit
+        flash[:notice] = 'User deletion failed'
+        render :index
       end
     else
       flash[:notice] = "You must be signed in!"

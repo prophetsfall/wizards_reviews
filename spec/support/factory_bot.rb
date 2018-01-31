@@ -16,3 +16,9 @@ FactoryBot.define do
     creator_id 1
   end
 end
+FactoryBot.define do
+  factory :review do
+    body "This wizard rules!"
+    rating 3
+  end
+end

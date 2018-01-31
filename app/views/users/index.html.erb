@@ -2,26 +2,26 @@
 
 <ul className="adminUsers">
   <% @users.each do |user| %>
-  <li>
+  <li className="listUser">
     <%= user.user_name %>:
-    <%= link_to "delete", @user, method: :destroy, data:{confirm: "You sure?"} %>
+    <%= link_to "Delete #{user.user_name}", user, method: :delete, data:{confirm: "You sure?"} %>
   </li>
   <% end %>
 </ul>
 <ul className="adminWizards">
   <% @wizards.each do |wizard| %>
-  <li>
+  <li className="listWizard">
     <%= wizard.name %>:
-    <%= link_to "delete", @wizard, method: :destroy, data:{confirm: "You sure?"} %>
+    <%= link_to "Delete #{wizard.name}", wizard, method: :delete, data:{confirm: "You sure?"} %>
   </li>
   <% end %>
 </ul>
-<ul className="adminReviews">
+<ul className="adminReviews ">
   <% @reviews.each do |review| %>
-  <li>
+  <li className="listReview">
     <%= review.wizard.name %>:
     <%= review.body %>
-    <%= link_to "delete", @review, method: :destroy, data:{confirm: "You sure?"} %>
+    <%= link_to "Delete Review #{review.id}", review, method: :delete, data:{confirm: "You sure?"} %>
   </li>
   <% end %>
 </ul>
