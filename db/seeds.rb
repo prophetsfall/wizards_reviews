@@ -14,7 +14,7 @@ FactoryBot.define do
     password 'password'
     password_confirmation 'password'
     role 'member'
-  en
+  end
 end
 bob = FactoryBot.create(:user)
 steve = FactoryBot.create(:user)
