@@ -5,6 +5,8 @@ class Wizard < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 
+  mount_uploader :img_url, ImgUrlUploader
+
   def average_rating
     sum = 0
     if self.reviews.length >0
