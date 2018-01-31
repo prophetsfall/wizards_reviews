@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   has_many :votes
 
-  mount_uploader :photo, ProfilePhotoUploader
+  mount_uploader :profile_photo, ProfilePhotoUploader
   def admin?
     role == "admin"
   end

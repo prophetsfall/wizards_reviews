@@ -1,28 +1,3 @@
 <h1>New Wizard Form</h1>
-<%= form_for(@wizard) do |f| %>
- <% if @wizard.errors.any? %>
- <div id="error_explanation">
-   <h2><%= pluralize(@wizard.errors.count, "error") %> prohibited this Wizard from being saved:</h2>
-   <ul>
-     <% @wizard.errors.full_messages.each do |msg| %>
-     <li><%= msg %></li>
-     <% end %>
-   </ul>
- </div>
- <% end %>
 
- <p>
-   <%= f.label :name %>
-   <%= f.text_area :name %>
- </p>
- <p>
-   <%= f.label :description %>
-   <%= f.text_area :description %>
- </p>
- <!-- <p class="field">
-    <%= f.label :img_url, "Upload wizard photo" %><br />
-    <%= f.file_field :img_url %>
-  </p> -->
-
- <%= f.submit "Add Wizard" %>
-<% end %>
+<%= render "wizards/form" %>

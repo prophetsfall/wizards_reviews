@@ -1,70 +1,53 @@
 import React from 'react';
 
 const ReviewForm = (props) => {
-
-  let handleBodyChange = (event) => {
-    let value = event.target.value
-    props.passDownReviewChange(value);
-  }
-
-  let handleRatingChange = (event) => {
-    let value = event.target.value
-    props.passDownRatingChange(value);
-  }
-
-  let handleSubmit = (event) => {
-    event.preventDefault();
-    props.passDownSubmit();
-  }
+  let valueRange = ['20', '40', '60', '80', '100']
+  let buttons = valueRange.map((value)=>{
+    return(
+      <label>{value/20}
+        <RadioButton
+          passDownRatingChange={props.passDownRatingChange}
+          value={value}
+          rating={props.rating}
+          key={value}
+        />
+      </label>
+    )
+  })
   return(
     <div>
-      <form>
-        <label>Review Form
+      <form id="form">
+
+        <label id="label">Review Form
           <input
             type="text"
             name="reviewForm"
             id="reviewForm"
             value={props.bodyText}
-            onChange={handleBodyChange}
+            onChange={props.passDownReviewChange}
           />
         </label>
         <div className="radio">
-        <label>1
-          <input name="rating" type="radio" value="20"
-            checked={props.rating==='20'}
-            onChange={handleRatingChange}
-          />
-        </label>
-        <label>2
-          <input name="rating" type="radio" value="40"
-            checked={props.rating==='40'}
-            onChange={handleRatingChange}
-          />
-        </label>
-        <label>3
-          <input name="rating" type="radio" value="60"
-            checked={props.rating==='60'}
-            onChange={handleRatingChange}
-          />
-        </label>
-        <label>4
-          <input name="rating" type="radio" value="80"
-            checked={props.rating==='80'}
-            onChange={handleRatingChange}
-          />
-        </label>
-        <label>5
-          <input name="rating" type="radio" value="100"
-            checked={props.rating==='100'}
-            onChange={handleRatingChange}
-          />
-        </label>
-      </div>
+        {buttons}
+        </div>
         <div className="button-group">
-          <button onClick={handleSubmit}>Submit Review</button>
+          <button onClick={props.passDownSubmit}>Submit Review</button>
         </div>
       </form>
     </div>
+  )
+}
+
+const RadioButton = (props) => {
+
+  return(
+    <div>
+      <input name="rating" type="radio"     value={props.value}
+        checked={props.rating===props.value}
+        onChange={props.passDownRatingChange}
+      />
+    </div>
+
   )
 }
 export default ReviewForm;

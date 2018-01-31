@@ -33,6 +33,7 @@ class WizardsController < ApplicationController
   end
 
   def edit
+    @wizard = Wizard.find(params[:id])
     if current_user
       @wizard = Wizard.find(params[:id])
     else
@@ -47,8 +48,7 @@ class WizardsController < ApplicationController
         redirect_to wizard_path(@wizard.id)
         flash[:notice] = 'Wizard updated successfully'
       else
-        @wizard = @wizard.update(wizard_params)
-        flash[:notice] = 'Wizard add failed'
+        flash[:notice] = 'Wizard update failed'
         render :edit
       end
     else
@@ -63,7 +63,7 @@ class WizardsController < ApplicationController
       if @wizard.destroy
         reviews = Review.where(wizard_id: params[:id]).delete_all
         redirect_to wizards_path
-        flash[:notice] = "Wizard and #{reviews} deleted successfully"
+        flash[:notice] = "Wizard and #{reviews} reviews deleted successfully"
       else
         flash[:notice] = 'Wizard deletion failed'
         render :edit

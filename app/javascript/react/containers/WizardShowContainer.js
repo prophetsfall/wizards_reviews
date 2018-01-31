@@ -8,6 +8,7 @@ class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: {},
       wizard: {},
       reviews: []
     }
@@ -16,7 +17,7 @@ class WizardShowContainer extends Component {
 
   componentDidMount() {
     let wizardId = this.props.params.id;
-    fetch(`/api/v1/wizards/${wizardId}`)
+    fetch(`/api/v1/wizards/${wizardId}`, {credentials: 'same-origin'})
     .then(response => {
       if (response.ok) {
         return response;
@@ -28,14 +29,12 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ wizard: body.wizard, reviews: body.wizard.reviews })
+      this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-
   addNewReview(formPayload) {
-
     fetch('/api/v1/reviews', {
       credentials: 'same-origin',
       method: 'post',
@@ -64,7 +63,6 @@ class WizardShowContainer extends Component {
   }
 
   render() {
-
     let reviewArray = this.state.reviews.map((review) => {
       return(
         <ReviewTile
@@ -82,8 +80,11 @@ class WizardShowContainer extends Component {
           name={this.state.wizard.name}
           id={this.state.wizard.id}
           description={this.state.wizard.description}
-          imgUrl={this.state.wizard.img_url}
+          imgUrl={this.state.wizard.image_path}
           rating={this.state.wizard.rating}
+          reviews={this.state.reviews}
+          creator_id={this.state.wizard.creator_id}
+          user_id={this.state.user.id}
         />
         {reviewArray}
         <ReviewFormContainer

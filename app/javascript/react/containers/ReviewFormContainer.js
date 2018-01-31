@@ -14,11 +14,19 @@ class ReviewFormContainer extends Component {
     this.ratingChange = this.ratingChange.bind(this)
   }
 
-  ratingChange(value) {
+  ratingChange(event) {
+    debugger
+    let value = event.target.value
     this.setState({ rating: value })
   }
 
-  handleSubmit() {
+  reviewChange(event) {
+    let value = event.target.value
+    this.setState({ bodyText: value })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     let formPayload = {
       review: {
         body: this.state.bodyText,
@@ -28,14 +36,10 @@ class ReviewFormContainer extends Component {
     this.props.addNewReview(formPayload)
   }
 
-  reviewChange(value) {
-    this.setState({ bodyText: value })
-  }
 
   render() {
-    let passDownReviewChange = (value) => { this.reviewChange(value) }
-    let passDownRatingChange = (value) => { this.ratingChange(value) }
-    let passDownSubmit = () => { this.handleSubmit() }
+    let passDownReviewChange = (event) => { this.reviewChange(event) }
+    let passDownRatingChange = (event) => { this.ratingChange(event) }
 
     return(
       <div>
@@ -44,7 +48,7 @@ class ReviewFormContainer extends Component {
           rating={this.state.rating}
           passDownReviewChange={passDownReviewChange}
           passDownRatingChange={passDownRatingChange}
-          passDownSubmit={passDownSubmit}
+          passDownSubmit={this.handleSubmit}
         />
 
       </div>
