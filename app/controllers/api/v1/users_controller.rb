@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     if current_user.admin?
-      render json: {users: User.all}
+      render json: {users: User.all, wizards: Wizard.all, reviews: Review.all}
     else
       render json: {error: "Not authorized to use API"}, status: :unprocessable_entity
     end
