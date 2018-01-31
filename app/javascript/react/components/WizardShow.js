@@ -14,8 +14,8 @@ const WizardShow = (props) => {
   return(
     <div id='show'>
       <div className="wizard-show-component">
-        <h1 id="header">{props.name}</h1>
-        <img src= {`${props.imgUrl}`} alt=""/>
+        <h1>{props.name}</h1>
+        <img src= {`https://s3.us-east-2.amazonaws.com/wizard-reviews-production/${props.imgUrl}`} alt=""/>
         <h1>{props.rating}</h1>
         <p id="description">{props.description}</p>
       </div>

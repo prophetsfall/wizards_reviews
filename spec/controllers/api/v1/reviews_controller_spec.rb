@@ -5,11 +5,14 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:user2) {FactoryBot.create(:user, role: "member")}
   let!(:user3) {FactoryBot.create(:user, role: "member")}
 
+  let!(:school) {MagicSchool.create(name: 'evocation')}
+
   let!(:clippy) { Wizard.create(
     name: "Clippy",
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
-    creator_id: user1.id
+    creator_id: user1.id,
+    magic_school: school
     )
   }
   describe 'POST#create' do

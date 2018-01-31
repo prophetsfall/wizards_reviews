@@ -8,6 +8,7 @@ class WizardsController < ApplicationController
   end
 
   def new
+    @magic_schools = MagicSchool.all
     if current_user
       @wizard = Wizard.new
     else
@@ -75,6 +76,6 @@ class WizardsController < ApplicationController
   protected
 
   def wizard_params
-    params.require(:wizard).permit(:name, :description, :img_url)
+    params.require(:wizard).permit(:name, :description, :img_url, :magic_school_id)
   end
 end
