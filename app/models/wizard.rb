@@ -3,10 +3,8 @@ class Wizard < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
-  #
-  # def to_param
-  #   return self.name
-  # end
+
+  mount_uploader :img_url, ImgUrlUploader
 
   def average_rating
     sum = 0
