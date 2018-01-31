@@ -9,3 +9,10 @@ FactoryBot.define do
     role 'member'
   end
 end
+FactoryBot.define do
+  factory :wizard do
+    sequence(:name) { |n| "wizard#{n}"}
+    description "I'm a bloody wizard!"
+    creator_id 1
+  end
+end

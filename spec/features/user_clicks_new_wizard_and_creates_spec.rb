@@ -34,7 +34,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
     fill_in 'Name', with: "Mortimar"
     fill_in 'Description', with: "Mage Most Magnificint"
 
-    click_button 'Add Wizard'
+    click_button 'Submit'
     expect(page).to have_content("Wizard added successfully")
   end
 end

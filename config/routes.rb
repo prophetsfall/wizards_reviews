@@ -11,8 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-
-  resources :wizards, only: [:new, :create, :edit, :update, :destroy]
+  resources :wizards
 
   get '*path', to: 'static_views#index'
 
