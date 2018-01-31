@@ -35,6 +35,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
     fill_in 'Name', with: "Mortimar"
     fill_in 'Description', with: "Mage Most Magnificint"
     select ('Enchantment'), from: "School of Magic"
+    fill_in 'Author/series of origin:', with: "Sheila watkins"
 
     click_button 'Submit'
     expect(page).to have_content("Wizard added successfully")

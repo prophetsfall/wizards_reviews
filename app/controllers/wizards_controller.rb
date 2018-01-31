@@ -76,6 +76,6 @@ class WizardsController < ApplicationController
   protected
 
   def wizard_params
-    params.require(:wizard).permit(:name, :description, :img_url, :magic_school_id)
+    params.require(:wizard).permit(:name, :description, :img_url, :magic_school_id, :origin)
   end
 end
