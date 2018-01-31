@@ -6,8 +6,8 @@ class ReviewFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bodyText: "",
-      rating: ""
+      bodyText: this.props.body,
+      rating: this.props.rating
     }
     this.reviewChange = this.reviewChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -15,7 +15,7 @@ class ReviewFormContainer extends Component {
   }
 
   ratingChange(event) {
-    
+
     let value = event.target.value
     this.setState({ rating: value })
   }
@@ -34,6 +34,7 @@ class ReviewFormContainer extends Component {
         wizard_id: this.props.wizardId,
     } }
     this.props.addNewReview(formPayload)
+    this.setState({bodyText:"", rating:""})
   }
 
 

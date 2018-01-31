@@ -10,7 +10,9 @@ class WizardShowContainer extends Component {
     this.state = {
       user: {},
       wizard: {},
-      reviews: []
+      reviews: [],
+      fetchMethod: "post",
+      apiPath: "/api/v1/reviews"
     }
     this.addNewReview = this.addNewReview.bind(this)
   }
@@ -23,7 +25,7 @@ class WizardShowContainer extends Component {
         return response;
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
+        error = new Error(errorMessage);
         throw(error);
       }
     })
@@ -35,9 +37,14 @@ class WizardShowContainer extends Component {
   }
 
   addNewReview(formPayload) {
-    fetch('/api/v1/reviews', {
+    if (this.state.wizard.user_reviews) {
+      if (this.state.wizard.user_reviews.length>0) {
+        this.setState({fetchMethod: "patch", apiPath:"/api/v1/review"})
+      }
+    }
+    fetch(`${this.state.apiPath}/${this.state.wizard.user_reviews[0].id}`, {
       credentials: 'same-origin',
-      method: 'post',
+      method: `${this.state.fetchMethod}`,
       body: JSON.stringify(formPayload),
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +57,7 @@ class WizardShowContainer extends Component {
         return response;
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
+        error = new Error(errorMessage);
         throw(error);
       }
     })
@@ -73,6 +80,29 @@ class WizardShowContainer extends Component {
         />
       )
     })
+    let reviewForm;
+    if (this.state.wizard.user_reviews) {
+      if (this.state.wizard.user_reviews.length>0) {
+
+        reviewForm = (
+          <ReviewFormContainer
+            addNewReview={this.addNewReview}
+            wizardId={this.state.wizard_id}
+            body={this.state.wizard.user_reviews[0].body}
+            rating={this.state.wizard.user_reviews[0].rating}
+          />
+          )
+        } else {
+          reviewForm = (
+            <ReviewFormContainer
+              addNewReview={this.addNewReview}
+              wizardId={this.state.wizard.id}
+            />
+          )
+        }
+      } else {
+        reviewForm= <p></p>
+      }
 
     return(
       <div>
@@ -86,10 +116,7 @@ class WizardShowContainer extends Component {
           user_id={this.state.user.id}
         />
         {reviewArray}
-        <ReviewFormContainer
-          addNewReview={this.addNewReview}
-          wizardId={this.state.wizard.id}
-        />
+        {reviewForm}
       </div>
     )
   }

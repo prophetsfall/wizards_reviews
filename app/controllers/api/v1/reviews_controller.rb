@@ -1,6 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
   def create
-
     wizard = Wizard.find(review_params[:wizard_id])
     if user_signed_in?
       new_review = Review.new(review_params)
