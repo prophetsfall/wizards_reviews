@@ -3,14 +3,14 @@ import { Link } from 'react-router'
 
 const WizardTile = (props) => {
    return(
-     <div>
+     <div id='wizardElement'>
        <Link to={`/wizards/${props.id}`}>
-         <ul>
+         <ul id="wizlist">
             <li>{props.name}</li>
          </ul>
-         <p>Average Rating: {props.avgRating}</p>
+         <img src={`${props.imgUrl}`} alt='wizardPic' id="wizardpic" />
+         <p id="wizlist">Average Rating: {props.avgRating}</p>
        </Link>
-        <img src={`${props.imgUrl}`} alt='wizardPic'/>
      </div>
    )
 }
