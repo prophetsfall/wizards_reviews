@@ -43,7 +43,7 @@ class WizardsContainer extends Component {
        )
     })
     return(
-      <div>
+      <div id="wizindex">
         {wizardObjects}
       </div>
     )

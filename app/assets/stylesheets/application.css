@@ -15,3 +15,66 @@
  *= require foundation_and_overrides
 
  */
+#header {
+  color: green;
+  text-align: center;
+}
+#description {
+  color: red;
+  text-align: center;
+}
+#show{
+  border: 5px solid grey;
+  background: black;
+  border-radius: 10px;
+  height: 20em;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 10em;
+  border-radius: 100px;
+  padding: 10px;
+}
+#show #header{
+  color: pink;
+  font-size: 20px;
+}
+body{
+  background: #6A2EE4;
+}
+#wizindex{
+  background: #8832B6;
+}
+#wizindex #wizlist{
+  margin: auto;
+  text-align: center;
+}
+#wizardElement{
+border: 1.5px solid black;
+padding: 10px;
+margin-top: 10px;
+background: #D06542
+}
+#form{
+  background-image: url("73e71fd636407bd0e659f0f664dd136a.png");
+  background-repeat: no-repeat;
+  text-align: center;
+  background-position: top;
+  background-size: auto;
+  padding: 5em;
+}
+#form label{
+  font-size: 25px;
+  color: blue;
+}
+#form #label{
+  padding-bottom: 1em;
+  color: #5AC356;
+  font-family: "Rammetto One";
+  font-size: 50px;
+
+}
+#form input{
+  padding-top: 2em;
+  width: 20em;
+  margin: auto;
+}
