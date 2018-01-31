@@ -23,6 +23,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
 
   scenario 'creates a wizard' do
     user = FactoryBot.create(:user)
+    enchantment = MagicSchool.create(name: 'Enchantment')
 
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -33,6 +34,7 @@ feature 'user clicks new wizard and creates new wizard', %Q{
     click_link 'New Wizard'
     fill_in 'Name', with: "Mortimar"
     fill_in 'Description', with: "Mage Most Magnificint"
+    select ('Enchantment'), from: "School of Magic"
 
     click_button 'Submit'
     expect(page).to have_content("Wizard added successfully")
