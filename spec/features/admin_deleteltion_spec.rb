@@ -45,7 +45,7 @@ describe 'Admin user views a list of users, wizards, and reviews. Can delete any
     expect(page).to have_content wizardguy1.name
     expect(page).to have_content user2.user_name
     click_link "Delete #{wizardguy3.name}"
-    expect(page).to have_content "Wizard and reviews deleted successfully"
+    expect(page).to have_content "Wizard and 0 reviews deleted successfully"
   end
 
   scenario 'signed in admin deletes reviews' do
