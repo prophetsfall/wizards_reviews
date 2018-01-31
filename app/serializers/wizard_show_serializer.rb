@@ -2,6 +2,7 @@ class WizardShowSerializer < ActiveModel::Serializer
   attributes :id, :creator_id, :name, :description, :img_url, :average_rating, :user_reviews, :user
 
   has_many :reviews
+  belongs_to :magic_school
 
   def user_reviews
     # We can now access the current_user with the keyword `scope`
@@ -11,4 +12,6 @@ class WizardShowSerializer < ActiveModel::Serializer
   def user
     current_user
   end
+
+
 end

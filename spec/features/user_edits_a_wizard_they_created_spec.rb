@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'Edit wizard Form' do
   let!(:user2) {FactoryBot.create(:user, role: "member")}
-  let!(:wizardguy) {FactoryBot.create(:wizard, creator_id: user2.id)}
+  let!(:school) {MagicSchool.create(name: 'Necromancy')}
+
+  let!(:wizardguy) {FactoryBot.create(:wizard, creator_id: user2.id, magic_school: school)}
 
   scenario 'signed in user submits a valid form' do
     visit '/'
@@ -18,7 +20,7 @@ describe 'Edit wizard Form' do
     expect(page).to have_content 'Wizard updated successfully'
   end
   scenario 'signed in user submits an invalid form' do
-  
+
     visit '/'
     click_link 'Sign In'
     fill_in 'Email', with: user2.email

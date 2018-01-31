@@ -1,12 +1,9 @@
 class Wizard < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  belongs_to :magic_school
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
-  #
-  # def to_param
-  #   return self.name
-  # end
 
   def average_rating
     sum = 0
