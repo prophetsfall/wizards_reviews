@@ -22,9 +22,6 @@ const WizardShow = (props) => {
       <div>
         {editForm()}
       </div>
-      <div id="reviews">
-        {props.reviews}
-      </div>
     </div>
   )
 }

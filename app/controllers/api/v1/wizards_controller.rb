@@ -7,7 +7,6 @@ class Api::V1::WizardsController < ApplicationController
   def show
     @user = current_user
     @wizard = Wizard.find(params[:id])
-    render json: Wizard.find(params[:id]), serializer: WizardShowSerializer
+    render json: @wizard, serializer: WizardShowSerializer
   end
-  # render json: Book.find(params[:id]), serializer: BookShowSerializer
 end
