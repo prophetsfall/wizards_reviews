@@ -18,8 +18,9 @@ const ReviewForm = (props) => {
   }
   return(
     <div>
-      <form>
-        <label>Review Form
+      <form id="form">
+
+        <label id="label">Review Form
           <input
             type="text"
             name="reviewForm"
