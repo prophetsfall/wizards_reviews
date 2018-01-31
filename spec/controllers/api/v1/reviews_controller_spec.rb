@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:user1) {FactoryBot.create(:user, role: "admin")}
   let!(:user2) {FactoryBot.create(:user, role: "member")}
+  let!(:user3) {FactoryBot.create(:user, role: "member")}
 
   let!(:clippy) { Wizard.create(
     name: "Clippy",
@@ -89,5 +90,34 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json["errors"]).to eq "Access Denied"
     end
 
+  end
+  describe "DELETE#destroy" do
+    it 'removes a review from the database if the creator deletes it' do
+      sign_in :user, user2
+      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
+
+      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+
+      expect{Review.find(review1.id)}.to raise_error
+    end
+
+    it 'removes a review from the database if an admin deletes it' do
+      sign_in :user, user1
+      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
+
+      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+
+      expect{Review.find(review1.id)}.to raise_error
+    end
+
+    it 'does not remove a review if another user deletes it' do
+      sign_in :user, user3
+      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
+
+      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+
+      expect{Review.find(review1.id)}.to_not raise_error
+
+    end
   end
 end

@@ -37,8 +37,8 @@ class WizardsContainer extends Component {
            key={wizard.name}
            id = {wizard.id}
            name={wizard.name}
-           id={wizard.id}
-           description={wizard.description}
+           imgUrl = {wizard.img_url}
+           avgRating = {wizard.average_rating}
          />
        )
     })
