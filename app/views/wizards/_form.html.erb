@@ -11,20 +11,21 @@
  </div>
  <% end %>
 
- <p>
+ <p id="newWizard">
    <%= f.label :name %>
-   <%= f.text_area :name %>
+   <%= f.text_area :name,class: "text-area" %>
  </p>
- <p>
+ <p id="newWizard">
    <%= f.label :description %>
    <%= f.text_area :description %>
  </p>
 
  <%= f.hidden_field :id %>
 
- <p class="field">
-    <%= f.label :img_url, "Upload wizard photo" %><br />
+ <p class="field" id="newWizard">
+    <%= f.label :img_url, "Upload wizard photo" %>
     <%= f.file_field :img_url %>
   </p>
   <%= f.submit "Submit" %>
+  <img src="logo-4.png">WizardWatchLogo</img>
  <% end %>

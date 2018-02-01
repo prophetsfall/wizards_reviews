@@ -12,11 +12,15 @@ const WizardShow = (props) => {
   return editLink
 }
   return(
-    <div id='show'>
-      <div className="wizard-show-component">
-        <h1 id="header">{props.name}</h1>
-        <img src= {`${props.imgUrl}`} alt=""/>
-        <h1>{props.rating}</h1>
+    <div id="test">
+      <h1 id="header">{props.name}</h1>
+      <div id='show'>
+        <div className="wizard-show-component">
+          <img src= {`${props.imgUrl}`} alt=""/>
+          <h1>{props.rating}</h1>
+        </div>
+      </div>
+      <div id="footer">
         <p id="description">{props.description}</p>
       </div>
       <div>

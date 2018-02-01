@@ -16,11 +16,20 @@
 
  */
 #header {
-  color: green;
+  color: #EFDB8A;
   text-align: center;
+  font-family: "Impact";
+  background-image: url("wizardname.png");
+  width: 10em;
+  margin: auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
 }
 #description {
   color: red;
+  width: 15em;
+  margin: auto;
+  background-image: url("descriptionbackround.png");
   text-align: center;
 }
 #show{
@@ -34,15 +43,31 @@
   border-radius: 100px;
   padding: 10px;
 }
+
 #show #header{
   color: pink;
   font-size: 20px;
 }
+#show #description{
+  color: blue;
+  text-align: center;
+  margin-top: 50px;
+}
 body{
-  background: #6A2EE4;
+  background-image: url("newbackround.jpg");
+  background-position: center;
+  background-size: contain;
 }
 #wizindex{
   background: #8832B6;
+  text-align: center;
+  background-position: center;
+  margin-left: 3em;
+  margin-right: 3em;
+  border-radius: 5em;
+}
+.indexclass{
+  text-align: center;
 }
 #wizindex #wizlist{
   margin: auto;
@@ -52,7 +77,7 @@ body{
 border: 1.5px solid black;
 padding: 10px;
 margin-top: 10px;
-background: #D06542
+background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
 }
 #form{
   background-image: url("73e71fd636407bd0e659f0f664dd136a.png");
@@ -63,18 +88,41 @@ background: #D06542
   padding: 5em;
 }
 #form label{
-  font-size: 25px;
+  font-size: 20px;
   color: blue;
 }
 #form #label{
+  position: relative;
+  top: -50px;
   padding-bottom: 1em;
-  color: #5AC356;
-  font-family: "Rammetto One";
+  color: #855831;
+  font-family: "Impact";
   font-size: 50px;
 
 }
 #form input{
-  padding-top: 2em;
+  margin-top: 5em;
+  padding-top: 3em;
   width: 20em;
   margin: auto;
+}
+.radio #radio{
+  color: pink;
+}
+#newWizard{
+  text-align: center;
+  color: #D16642;
+  font-size: 2.5em;
+  font-family: "Impact";
+}
+#newWizard label{
+  text-align: left;
+  color: #8832B7;
+  font-size: 20px;
+}
+}
+.text_area {
+  background: green;
+}
+#reviewForm{
 }
