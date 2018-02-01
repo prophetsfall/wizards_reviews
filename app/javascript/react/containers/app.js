@@ -19,7 +19,3 @@ const App = props => {
   )
 }
 export default App
-
-//This comment is pointless!
-//T\q
-//T\
