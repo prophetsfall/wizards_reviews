@@ -4,8 +4,9 @@ const ReviewForm = (props) => {
   let valueRange = ['20', '40', '60', '80', '100']
   let buttons = valueRange.map((value)=>{
     return(
-      <label key={value}>{value/20}
+      <label>Lvl {value/20}
         <RadioButton
+          id="radio"
           passDownRatingChange={props.passDownRatingChange}
           value={value}
           rating={props.rating}
@@ -25,8 +26,8 @@ const ReviewForm = (props) => {
             onChange={props.passDownReviewChange}
           />
         </label>
-        <div className="radio">
-          {buttons}
+        <div  id="radio" className="radio">
+        {buttons}
         </div>
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>
