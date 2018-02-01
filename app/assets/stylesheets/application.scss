@@ -94,8 +94,7 @@
 
 
 body {
-  background-image: image-url("newbackround.jpg");
-  background-repeat: no-repeat;
+  background: image-url("newbackround.jpg") no-repeat;
 }
 
 #wizindex {
@@ -189,7 +188,7 @@ background: white;
 }
 #footer {
   text-align: center;
-  background-image: image-url("scrolltexture.jpg");
+  background: image-url("scrolltexture.jpg");
   border: 3px solid #5C1912;
   width: 500px;
   margin: auto;
