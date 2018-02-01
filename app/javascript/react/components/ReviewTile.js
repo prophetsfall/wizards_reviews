@@ -4,11 +4,57 @@ import 'font-awesome/css/font-awesome.min.css';
 
 
 const ReviewTile = props => {
-
   let body = props.body
   let rating = props.rating
   let created_at = props.created_at
   let votes = props.votes
+  let upvoter = () => {
+    if (props.voted === -1) {
+      return (
+        <div>
+          <i
+            id="downvote"
+            className="selected fas fa-arrow-down"
+            onClick={handleClick}
+          ></i>{votes}
+          <i
+            id="upvote"
+            className="fas fa-arrow-up"
+            onClick={handleClick}
+          ></i>
+        </div>
+      )
+    } else if (props.voted === 1) {
+      return (
+        <div>
+          <i
+            id="downvote"
+            className="fas fa-arrow-down"
+            onClick={handleClick}
+          ></i> {votes}
+          <i
+            id="upvote"
+            className="selected fas fa-arrow-up"
+            onClick={handleClick}
+          ></i>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <i id="downvote"
+            className="fas fa-arrow-down"
+            onClick={handleClick}
+          ></i> {votes}
+          <i
+            id="upvote"
+            className="fas fa-arrow-up"
+            onClick={handleClick}
+          ></i>
+        </div>
+    )
+    }
+  }
   let handleClick = (event) => {
     let clicked = event.target.id
     let formPayload;
@@ -34,8 +80,8 @@ const ReviewTile = props => {
     <div>
       <p> {body}</p>
       <p> {rating}</p>
-      <p><i id="downvote" className="fas fa-arrow-down" onClick={handleClick}></i> {votes} <i id="upvote" className="fas fa-arrow-up" onClick={handleClick}></i></p>
-    </div>
+      {upvoter()}
+      </div>
   )
 }
 export default ReviewTile;

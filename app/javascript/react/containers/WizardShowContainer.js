@@ -99,7 +99,10 @@ class WizardShowContainer extends Component {
 
   render() {
     let reviewArray = this.state.reviews.map((review) => {
-
+      let voted = 0;
+      if (review.user_votes.length === 1) {
+        voted = review.user_votes[0].vote;
+      }
       return(
         <ReviewTile
           key={review.id}
@@ -109,10 +112,11 @@ class WizardShowContainer extends Component {
           userName={review.creator_name}
           votes={review.vote_count}
           alterVote={this.alterVote}
+          voted={voted}
         />
       )
     })
-    
+
     return(
       <div>
         <WizardShow
