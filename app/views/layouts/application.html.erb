@@ -20,6 +20,11 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <li id='flashMessage'>
+          <% flash.each do |key, value| %>
+          <a><%= value %></a>
+          <% end %>
+        </li>
         <%- if current_user  -%>
           <%- if current_user.admin? -%>
             <li> <%= link_to 'Admin Dashboard', users_path %></li>
@@ -34,15 +39,10 @@
       </ul>
       <ul class = "left">
         <li><%= link_to "New Wizard", new_wizard_path,method: :get %></li>
+
       </ul>
     </section>
   </nav>
-
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
 
   <%= yield %>
 

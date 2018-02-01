@@ -16,9 +16,9 @@ FactoryBot.define do
     role 'member'
   end
 end
-bob = FactoryBot.create(:user)
-steve = FactoryBot.create(:user)
-jill = FactoryBot.create(:user)
+# bob = FactoryBot.create(:user)
+# steve = FactoryBot.create(:user)
+# jill = FactoryBot.create(:user)
 
 abjuration = MagicSchool.find_or_create_by!(name: "Abjuration")
 conjuration = MagicSchool.find_or_create_by!(name: "Conjuration")
