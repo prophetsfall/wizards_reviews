@@ -16,69 +16,192 @@
 
  */
 #header {
-  color: green;
+  color: #252525;
+  font-size: 5em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
+  font-family: "Impact";
+  background-image: url("scrolltexture.jpg");
+  border: 3px solid #65110C;
+  width: 10em;
+  margin: auto;
+  border-radius: 20px;
 }
 #description {
-  color: red;
+  color: #000000;
+  font-size: 50px;
+  width: 15em;
+  margin: auto;
+  background: white;
   text-align: center;
 }
-#show{
-  border: 5px solid grey;
-  background: black;
+#show {
+  background-image: url("Red_Portal.png");
+  background-position: center;
+  background-size: 300px;
+  background-repeat: no-repeat;
   border-radius: 10px;
-  height: 20em;
+  height: 25em;
   margin: auto;
   margin-bottom: 20px;
-  width: 10em;
+  width: 15em;
   border-radius: 100px;
-  padding: 10px;
+  padding: 1em;
 }
-#show #header{
-  color: pink;
-  font-size: 20px;
+#show img{
+  position:relative;left:42px;top:80px;
+  border-radius: 40px;
+  height: 200px;
+  width: 125px;
+  overflow: hidden;
+
 }
-body{
-  background: #6A2EE4;
-}
-#wizindex{
-  background: #8832B6;
-}
-#wizindex #wizlist{
-  margin: auto;
+#reviewscheck {
+  background-image: url("scroll.png");
+  color: white;
   text-align: center;
-}
-#wizardElement{
-border: 1.5px solid black;
-padding: 10px;
-margin-top: 10px;
-background: #D06542
-}
-#form{
-  background-image: url("73e71fd636407bd0e659f0f664dd136a.png");
   background-repeat: no-repeat;
   text-align: center;
   background-position: top;
   background-size: auto;
-  padding: 5em;
+  padding: 1.8em;
 }
-#form label{
-  font-size: 25px;
-  color: blue;
-}
-#form #label{
-  padding-bottom: 1em;
-  color: #5AC356;
-  font-family: "Rammetto One";
+#reviewscheck h3 {
+  color: #831E2C;
   font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+#reviewbody {
+  font-size: 20px;
+  color: #9D4242;
+}
+#reviewRating {
+  text-align: center;
+  color: #B35E58;
+}
+#linkage {
+  color: #3D888E;
+  background: #072E36;
+  margin-left: 25px;
+  font-size: 2em;
+  text-align: left;
+}
+
+
+
+
+body {
+  background-image: url("newbackround.jpg");
+  background-repeat: no-repeat;
+}
+
+#wizindex {
+  text-align: center;
+  background-position: center;
+  margin-left: 3em;
+  margin-right: 3em;
+  border-radius: 5em;
+  margin-bottom: 5em;
+}
+
+#wizindex #wizlist {
+  margin: auto;
+  text-align: center;
+}
+#wizardElement {
+border: 1.5px solid black;
+padding-top: 40px;
+margin-top: 10px;
+margin-bottom: 40px;
+width: 900px;
+margin-left: auto;
+margin-right: auto;
+columns: 3;
+background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
 
 }
-#form input{
-  padding-top: 2em;
+ul {
+  list-style-type: none;
+}
+#form {
+  background-image: url("scrolltexture.jpg");
+  text-align: center;
+  width: 25em;
+  margin: auto;
+  background-repeat: no-repeat;
+  margin-top: 2em;
+  height: 1000px;
+}
+
+#form h4 {
+  padding-top: 10px;
+  color: black;
+}
+
+
+#form input {
+  margin-top: 5em;
+  padding-top: 3em;
   width: 20em;
   margin: auto;
 }
 
-.hide{
-  display: none;
+#newWizard {
+  text-align: center;
+  color: #D16642;
+  font-size: 2.5em;
+  font-family: "Impact";
+}
+#newWizard label {
+  text-align: left;
+  color: #8832B7;
+  font-size: 20px;
+}
+
+
+#reviewForm {
+  text-align: center;
+  background: white;
+}
+#loginform {
+  background: white;
+}
+#loginform body {
+  background: white;
+}
+#edituser {
+background: white;
+}
+#newuser {
+  background: white;
+}
+#deviseConfirm {
+  background: white;
+}
+#editPassword {
+background: white;
+}
+#forgotPassword {
+  background: white;
+}
+#footer {
+  text-align: center;
+  background-image: url("scrolltexture.jpg");
+  border: 3px solid #5C1912;
+  width: 500px;
+  margin: auto;
+  font-weight: bold;
+  padding-top: 10px;
+}
+#showpic  {
+  margin:auto;
+  image-orientation: center;
+  position: absolute;
+    top: -1; bottom:0; left: 0; right:0;
+}
+#indexbig{
+  font-size: 2em;
 }

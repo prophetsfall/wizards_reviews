@@ -6,6 +6,7 @@ const ReviewForm = (props) => {
     return(
       <label key={value}>{value/20}
         <RadioButton
+          id="radio"
           passDownRatingChange={props.passDownRatingChange}
           value={value}
           rating={props.rating}
@@ -25,8 +26,8 @@ const ReviewForm = (props) => {
             onChange={props.passDownReviewChange}
           />
         </label>
-        <div className="radio">
-          {buttons}
+        <div  id="radio" className="radio">
+        {buttons}
         </div>
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>

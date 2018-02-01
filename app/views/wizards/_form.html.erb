@@ -10,17 +10,17 @@
       </ul>
     </div>
   <% end %>
-
+  <div id="newWizard">
   <p>
-    <%= f.label :name %>
+    <%= f.label :name, "Name:" %>
     <%= f.text_area :name %>
   </p>
   <p>
-    <%= f.label :description %>
+    <%= f.label :description, "Description:" %>
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :magic_school_id, "School of Magic" %>
+    <%= f.label :magic_school_id, "School of Magic:" %>
     <%= f.collection_select :magic_school_id, MagicSchool.all, :id, :name  %>
   </p>
   <p>
@@ -29,10 +29,10 @@
   </p>
 
   <%= f.hidden_field :id %>
-
-  <p class="field">
-    <%= f.label :img_url, "Upload wizard photo" %><br />
+  </div>
+ <p class="field" id="newWizard">
+    <%= f.label :img_url, "Upload wizard photo:" %>
     <%= f.file_field :img_url %>
   </p>
   <%= f.submit "Submit" %>
-<% end %>
+ <% end %>
