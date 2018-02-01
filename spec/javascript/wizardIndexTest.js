@@ -33,13 +33,13 @@ describe('WizardsContainer', ()=>{
   it('Should render Wizard components with the given state', ()=>{
     wrapper.setState({
       wizards: [
-        {name: 'Ian', id: 1, average_rating: 83, img_url: 'www.wizard.com'},
+        {name: 'Ian', id: 1, average_rating: 83 },
         {name: 'James', description: 'A description'}
       ]
     })
     // Expected Object({ id: 1, name: 'Ian', imgUrl: undefined, avg_rating: undefined }) to equal Object({ name: 'Ian', id: 1, description: 'A description' })
 
-    expect(wrapper.find(WizardTile).at(0).props()).toEqual({name: 'Ian', id: 1, imgUrl: 'www.wizard.com', avgRating: 83})
+    expect(wrapper.find(WizardTile).at(0).props()).toEqual({name: 'Ian', id: 1, imgUrl: undefined, avgRating: 83})
     expect(wrapper.find(WizardTile).at(1).props().name).toEqual('James')
     // .toBePresent();
   })

@@ -112,7 +112,7 @@ class WizardShowContainer extends Component {
         />
       )
     })
-
+    
     return(
       <div>
         <WizardShow
