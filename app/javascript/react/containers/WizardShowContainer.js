@@ -31,7 +31,7 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
+      this.setState({ user_id: body.wizard.user.id, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -154,7 +154,7 @@ class WizardShowContainer extends Component {
             rating={this.state.wizard.user_reviews[0].rating}
             reviewId={this.state.wizard.user_reviews[0].id}
             creatorId={this.state.wizard.user_reviews[0].user_id}
-            userId={this.state.user.id}
+            userId={this.state.user_id}
             deleteReview={this.deleteReview}
 
           />
