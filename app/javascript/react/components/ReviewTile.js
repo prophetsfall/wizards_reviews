@@ -6,6 +6,7 @@ const ReviewTile = props => {
   let created_at = props.created_at
   let votes = props.votes
   let handleClick = (event) => {
+    let clicked = event.currentTarget
     let formPayload;
     if (clicked.className === 'upvote') {
       formPayload = {
@@ -14,7 +15,7 @@ const ReviewTile = props => {
           review_id: props.id
         }
       }
-    } else if (clicked.classNam === 'downvote') {
+    } else if (clicked.className === 'downvote') {
       formPayload = {
         vote: {
           vote: -1,
