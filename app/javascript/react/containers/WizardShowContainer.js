@@ -8,7 +8,7 @@ class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: null,
+      user_id: 0,
       wizard: {},
       reviews: []
     }
@@ -31,7 +31,13 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ user_id: body.wizard.user.id, wizard: body.wizard, reviews: body.wizard.reviews })
+      let user_id
+      if(body.wizard.user){
+        user_id = body.wizard.user.id
+      } else {
+        user_id = 0
+      }
+      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -143,16 +149,17 @@ class WizardShowContainer extends Component {
       )
     })
     let reviewForm;
+    let reviewId
     if (this.state.wizard.user_reviews) {
       if (this.state.wizard.user_reviews.length>0) {
-
+        reviewId = this.state.wizard.user_reviews[0].id
         reviewForm = (
           <ReviewFormContainer
             addNewReview={this.addNewReview}
             wizardId={this.state.wizard.id}
             body={this.state.wizard.user_reviews[0].body}
             rating={this.state.wizard.user_reviews[0].rating}
-            reviewId={this.state.wizard.user_reviews[0].id}
+            reviewId={reviewId}
             creatorId={this.state.wizard.user_reviews[0].user_id}
             userId={this.state.user_id}
             deleteReview={this.deleteReview}
