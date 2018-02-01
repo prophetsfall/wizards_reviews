@@ -21,7 +21,9 @@
     <section class="top-bar-section">
       <ul class="right">
         <li id='flashMessage'>
-          <a><%= flash[:notice] %></a>
+          <% flash.each do |key, value| %>
+          <a><%= value %></a>
+          <% end %>
         </li>
         <%- if current_user  -%>
           <%- if current_user.admin? -%>
