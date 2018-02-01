@@ -34,7 +34,7 @@ const ReviewTile = props => {
     <div>
       <p> {body}</p>
       <p> {rating}</p>
-      <p><i id="upvote" className="fas fa-arrow-down" onClick={handleClick}></i> {votes} <i id="downvote" className="fas fa-arrow-up" onClick={handleClick}></i></p>
+      <p><i id="downvote" className="fas fa-arrow-down" onClick={handleClick}></i> {votes} <i id="upvote" className="fas fa-arrow-up" onClick={handleClick}></i></p>
     </div>
   )
 }
