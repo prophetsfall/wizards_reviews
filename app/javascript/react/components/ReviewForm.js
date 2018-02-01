@@ -10,7 +10,6 @@ const ReviewForm = (props) => {
           value={value}
           rating={props.rating}
         />
-        key={value}
       </label>
     )
   })

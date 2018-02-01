@@ -142,7 +142,6 @@ class WizardShowContainer extends Component {
         />
       )
     })
-<<<<<<< HEAD
     let reviewForm;
     if (this.state.wizard.user_reviews) {
       if (this.state.wizard.user_reviews.length>0) {
@@ -171,9 +170,6 @@ class WizardShowContainer extends Component {
       } else {
         reviewForm= <p></p>
       }
-
-=======
->>>>>>> 42ae495d6208bcd9d4bd5674b510d913ef4de11a
     return(
       <div>
         <WizardShow
