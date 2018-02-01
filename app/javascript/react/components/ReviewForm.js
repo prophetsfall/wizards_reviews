@@ -10,14 +10,12 @@ const ReviewForm = (props) => {
           value={value}
           rating={props.rating}
         />
-        key={value}
       </label>
     )
   })
   return(
     <div>
       <form id="form">
-
         <label id="label">Review Form
           <input
             type="text"
@@ -28,26 +26,26 @@ const ReviewForm = (props) => {
           />
         </label>
         <div className="radio">
-        {buttons}
+          {buttons}
         </div>
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>
+          <button onClick={props.passDownDelete}>Delete Review</button>
         </div>
       </form>
     </div>
   )
-}
+  }
 
-const RadioButton = (props) => {
+  const RadioButton = (props) => {
+    return(
+      <div>
+        <input name="rating" type="radio"     value={props.value}
+          checked={props.rating===props.value}
+          onChange={props.passDownRatingChange}
+        />
+      </div>
 
-  return(
-    <div>
-      <input name="rating" type="radio"     value={props.value}
-        checked={props.rating===props.value}
-        onChange={props.passDownRatingChange}
-      />
-    </div>
-
-  )
-}
+    )
+  }
 export default ReviewForm;
