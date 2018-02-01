@@ -1,28 +1,20 @@
 import React from 'react';
 
-
-
 const ReviewTile = props => {
   let body = props.body
   let rating = props.rating
   let created_at = props.created_at
   let votes = props.votes
   let handleClick = (event) => {
-    let clicked = event.currentTarget.id
-    if ($(`#${clicked}`).hasClass('selected')) {
-      $(`#${clicked}`).removeClass('selected')
-    } else {
-      $(`#${clicked}`).addClass('selected')
-    }
     let formPayload;
-    if (clicked === 'upvote') {
+    if (clicked.className === 'upvote') {
       formPayload = {
         vote: {
           vote: 1,
           review_id: props.id
         }
       }
-    } else if (clicked === 'downvote') {
+    } else if (clicked.classNam === 'downvote') {
       formPayload = {
         vote: {
           vote: -1,
@@ -38,9 +30,9 @@ const ReviewTile = props => {
       <p> {body}</p>
       <p> {rating}</p>
       <div>
-        <a id="downvote"  onClick={handleClick}>
+        <a className="downvote" onClick={handleClick}>
           <i className="fas fa-arrow-down" ></i>
-        </a> {votes} <a id="upvote" onClick={handleClick}>
+        </a> {votes} <a className="upvote" onClick={handleClick}>
           <i className="fas fa-arrow-up" ></i>
         </a>
       </div>
