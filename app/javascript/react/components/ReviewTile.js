@@ -7,41 +7,13 @@ const ReviewTile = props => {
   let rating = props.rating
   let created_at = props.created_at
   let votes = props.votes
-  let upvoter = () => {
-    if (props.voted === -1) {
-      return (
-        <div>
-          <span onClick={handleClick}>
-            <i id="downvote" className="selected fas fa-arrow-down" ></i>
-          </span> {votes} <span onClick={handleClick}>
-            <i id="upvote" className="fas fa-arrow-up" ></i>
-          </span>
-        </div>
-      )
-    } else if (props.voted === 1) {
-      return (
-        <div>
-          <span onClick={handleClick}>
-            <i id="downvote" className="fas fa-arrow-down" ></i>
-          </span> {votes} <span onClick={handleClick}>
-            <i id="upvote" className="selected fas fa-arrow-up" ></i>
-          </span>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <span onClick={handleClick}>
-            <i id="downvote" className="fas fa-arrow-down" ></i>
-          </span> {votes} <span onClick={handleClick}>
-            <i id="upvote" className="fas fa-arrow-up" ></i>
-          </span>
-        </div>
-      )
-    }
-  }
   let handleClick = (event) => {
-    let clicked = event.target.id
+    let clicked = event.currentTarget.id
+    if ($(`#${clicked}`).hasClass('selected')) {
+      $(`#${clicked}`).removeClass('selected')
+    } else {
+      $(`#${clicked}`).addClass('selected')
+    }
     let formPayload;
     if (clicked === 'upvote') {
       formPayload = {
@@ -65,7 +37,13 @@ const ReviewTile = props => {
     <div>
       <p> {body}</p>
       <p> {rating}</p>
-      {upvoter()}
+      <div>
+        <a id="downvote"  onClick={handleClick}>
+          <i className="fas fa-arrow-down" ></i>
+        </a> {votes} <a id="upvote" onClick={handleClick}>
+          <i className="fas fa-arrow-up" ></i>
+        </a>
+      </div>
     </div>
   )
 }
