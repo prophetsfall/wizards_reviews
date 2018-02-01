@@ -1,5 +1,7 @@
 import React from 'react';
 
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const ReviewTile = props => {
 
@@ -7,11 +9,10 @@ const ReviewTile = props => {
   let rating = props.rating
   let created_at = props.created_at
   let votes = props.votes
-
   let handleClick = (event) => {
     let clicked = event.target.id
-    let formPayload
-    if (clicked === 'upvote'){
+    let formPayload;
+    if (clicked === 'upvote') {
       formPayload = {
         vote: {
           vote: 1,
@@ -33,7 +34,7 @@ const ReviewTile = props => {
     <div>
       <p> {body}</p>
       <p> {rating}</p>
-      <p><i id="downvote" className="fas fa-arrow-down" onClick={handleClick}>down</i> {votes} <i id="upvote" className="fas fa-arrow-up" onClick={handleClick}>up</i></p>
+      <p><i id="upvote" className="fas fa-arrow-down" onClick={handleClick}></i> {votes} <i id="downvote" className="fas fa-arrow-up" onClick={handleClick}></i></p>
     </div>
   )
 }
