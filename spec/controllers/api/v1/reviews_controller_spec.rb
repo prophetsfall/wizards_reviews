@@ -31,7 +31,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
     it 'should return a json object with errors and a 422 response if a field is empty' do
       sign_in :user, user2
-
       post :create, params: { review: { user_id: user2.id, wizard_id: clippy.id, body: '', rating: '' } }
 
       returned_json = JSON.parse(response.body)
@@ -51,55 +50,15 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json["errors"]).to eq "Access Denied"
 
     end
-  end
-
-  describe 'PATCH#update' do
-
-    it 'should return a json object with our updated review' do
-      sign_in :user, user2
-      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
-
-      patch :update, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
-
-      returned_json = JSON.parse(response.body)
-      expect(response.status).to eq 200
-      expect(response.content_type).to eq("application/json")
-
-      expect(returned_json["review"]["body"]).to eq "cow"
-      expect(returned_json["review"]["rating"]).to eq 20
-    end
-
-    it 'should return a status of 422 if form is filled out incorrectly' do
-      sign_in :user, user2
-      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
-
-      patch :update, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "", rating: 20 } }
-
-      returned_json = JSON.parse(response.body)
-      expect(response.status).to eq 422
-      expect(response.content_type).to eq("application/json")
-
-      expect(returned_json["errors"][0]).to eq "Body can't be blank"
-    end
-
-    it 'should return 401 if the correct user is not logged in' do
-      review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
-
-      patch :update, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
-
-      returned_json = JSON.parse(response.body)
-      expect(response.status).to eq 401
-      expect(response.content_type).to eq("application/json")
-      expect(returned_json["errors"]).to eq "Access Denied"
-    end
 
   end
+
   describe "DELETE#destroy" do
     it 'removes a review from the database if the creator deletes it' do
       sign_in :user, user2
       review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
 
-      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+      delete :destroy, params: { id: review1.id, review: {review_id:review1.id ,user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40} }
 
       expect{Review.find(review1.id)}.to raise_error
     end
@@ -108,7 +67,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       sign_in :user, user1
       review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
 
-      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+      delete :destroy, params: { id: review1.id, review: { review_id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
 
       expect{Review.find(review1.id)}.to raise_error
     end
@@ -117,7 +76,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       sign_in :user, user3
       review1 = Review.create!(user_id: user2.id, wizard_id: clippy.id, body: "asdfjkl;", rating: 40 )
 
-      delete :destroy, params: { id: review1.id, review: { id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
+      delete :destroy, params: { id: review1.id, review: { review_id: review1.id, user_id: user2.id, wizard_id: clippy.id, body: "cow", rating: 20 } }
 
       expect{Review.find(review1.id)}.to_not raise_error
 
