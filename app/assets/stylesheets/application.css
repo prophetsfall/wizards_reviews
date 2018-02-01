@@ -78,3 +78,7 @@ background: #D06542
   width: 20em;
   margin: auto;
 }
+
+.hide{
+  display: none;
+}

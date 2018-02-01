@@ -1,16 +1,16 @@
 import React from 'react';
 
-  const ReviewForm = (props) => {
-    let valueRange = ['20', '40', '60', '80', '100']
-    let buttons = valueRange.map((value)=>{
-      return(
-        <label>{value/20}
+const ReviewForm = (props) => {
+  let valueRange = ['20', '40', '60', '80', '100']
+  let buttons = valueRange.map((value)=>{
+    return(
+      <label key={value}>{value/20}
         <RadioButton
           passDownRatingChange={props.passDownRatingChange}
           value={value}
           rating={props.rating}
-          key={value}
         />
+        key={value}
       </label>
     )
   })

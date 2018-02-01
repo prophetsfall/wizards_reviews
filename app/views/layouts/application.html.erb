@@ -8,6 +8,8 @@
     <%= javascript_include_tag "vendor/modernizr" %>
 
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
@@ -20,10 +22,18 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <%- if current_user -%>
+        <li id='flashMessage'>
+          <% flash.each do |key, value| %>
+          <a><%= value %></a>
+          <% end %>
+        </li>
+        <%- if current_user  -%>
+          <%- if current_user.admin? -%>
+            <li> <%= link_to 'Admin Dashboard', users_path %></li>
+          <%- end -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 
-          <%= image_tag("https://s3.us-east-2.amazonaws.com/wizard-reviews-production/#{current_user.profile_photo.path}", height: '45', width: '45') %>
+          <li><%= image_tag("https://s3.us-east-2.amazonaws.com/wizard-reviews-production/#{current_user.profile_photo.path}", height: '45', width: '45', alt: current_user.user_name) %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
@@ -31,15 +41,10 @@
       </ul>
       <ul class = "left">
         <li><%= link_to "New Wizard", new_wizard_path,method: :get %></li>
+
       </ul>
     </section>
   </nav>
-
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
 
   <%= yield %>
 
