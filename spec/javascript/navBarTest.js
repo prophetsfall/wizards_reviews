@@ -29,8 +29,4 @@ describe('NavBar', () => {
   it('Should have a back button', () => {
     expect(wrapper.find(BackButton)).toBePresent();
   })
-
-  it('Should have a home link', () => {
-    expect(wrapper.find('Link').text()).toEqual('Home');
-  })
 })
