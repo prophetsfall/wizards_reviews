@@ -6,10 +6,10 @@ const WizardTile = (props) => {
      <div id='wizardElement'>
        <Link  to={`/wizards/${props.id}`}>
          <ul>
-            <li id="maketwo">{props.name}</li>
+            <li id="indexbig">{props.name}</li>
          </ul>
-         <img src={`${props.imgUrl}`} alt='wizardPic' id="wizardpic" />
-         <p class="indexclass">Average Rating: {props.avgRating}</p>
+         <img src={`https://s3.us-east-2.amazonaws.com/wizard-reviews-production/${props.imgUrl}`} alt='wizardPic' id="wizardpic" height='75px' width='75px' />
+         <p id="indexbig">Average Rating: {props.avgRating}</p>
        </Link>
      </div>
    )

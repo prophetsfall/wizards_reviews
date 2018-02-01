@@ -4,14 +4,14 @@ const ReviewForm = (props) => {
   let valueRange = ['20', '40', '60', '80', '100']
   let buttons = valueRange.map((value)=>{
     return(
-      <label>Lvl {value/20}
+      <label key={value}>{value/20}
         <RadioButton
           id="radio"
           passDownRatingChange={props.passDownRatingChange}
           value={value}
           rating={props.rating}
-          key={value}
         />
+        key={value}
       </label>
     )
   })

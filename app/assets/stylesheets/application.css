@@ -16,7 +16,11 @@
 
  */
 #header {
-  color: blue;
+  color: #252525;
+  font-size: 5em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   font-family: "Impact";
   background-image: url("scrolltexture.jpg");
@@ -24,10 +28,10 @@
   width: 10em;
   margin: auto;
   border-radius: 20px;
-  margin-bottom: 10px;
 }
 #description {
-  color: red;
+  color: #000000;
+  font-size: 50px;
   width: 15em;
   margin: auto;
   background: white;
@@ -44,7 +48,15 @@
   margin-bottom: 20px;
   width: 15em;
   border-radius: 100px;
-  padding: 10px;
+  padding: 1em;
+}
+#show img{
+  position:relative;left:42px;top:80px;
+  border-radius: 40px;
+  height: 200px;
+  width: 125px;
+  overflow: hidden;
+
 }
 #reviewscheck {
   background-image: url("scroll.png");
@@ -71,7 +83,11 @@
   color: #B35E58;
 }
 #linkage {
-  background: white;
+  color: #3D888E;
+  background: #072E36;
+  margin-left: 25px;
+  font-size: 2em;
+  text-align: left;
 }
 
 
@@ -79,7 +95,7 @@
 
 body {
   background-image: url("newbackround.jpg");
-  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #wizindex {
@@ -88,7 +104,7 @@ body {
   margin-left: 3em;
   margin-right: 3em;
   border-radius: 5em;
-  padding-bottom: 2.5em;
+  margin-bottom: 5em;
 }
 
 #wizindex #wizlist {
@@ -97,8 +113,13 @@ body {
 }
 #wizardElement {
 border: 1.5px solid black;
-padding: 10px;
+padding-top: 40px;
 margin-top: 10px;
+margin-bottom: 40px;
+width: 900px;
+margin-left: auto;
+margin-right: auto;
+columns: 3;
 background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
 
 }
@@ -110,6 +131,9 @@ ul {
   text-align: center;
   width: 25em;
   margin: auto;
+  background-repeat: no-repeat;
+  margin-top: 2em;
+  height: 1000px;
 }
 
 #form h4 {
@@ -169,6 +193,15 @@ background: white;
   border: 3px solid #5C1912;
   width: 500px;
   margin: auto;
-  font-weight: 200px;
+  font-weight: bold;
   padding-top: 10px;
+}
+#showpic  {
+  margin:auto;
+  image-orientation: center;
+  position: absolute;
+    top: -1; bottom:0; left: 0; right:0;
+}
+#indexbig{
+  font-size: 2em;
 }
