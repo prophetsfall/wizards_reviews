@@ -13,6 +13,7 @@ describe 'New wizard Form' do
     visit 'wizards/new'
     fill_in 'Name', with: 'Mr McGee'
     fill_in 'Description', with: "He's a good wizard"
+    fill_in 'Author/series of origin:', with: 'Pamela Allen'
     select ('Necromancy'), from: "School of Magic"
     click_button "Submit"
     expect(page).to have_content 'Wizard added successfully'

@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :wizard_id, :body, :rating, :created_at, :creator_name, :creator_img
+  attributes :id, :wizard_id, :body, :rating, :created_at, :creator_name, :creator_img, :vote_count, :user_votes
   def creator_name
     if object.user
       object.user.user_name
@@ -14,5 +14,8 @@ class ReviewSerializer < ActiveModel::Serializer
   else
   end
     "User no longer exists"
+  end
+  def user_votes
+    object.votes.where(user: scope)
   end
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :wizards, only: [:index, :show, :destroy]
       resources :users, only: [:index]
       resources :reviews, only: [:create, :update, :destroy]
+      resources :votes, only: [:create, :update]
     end
   end
 

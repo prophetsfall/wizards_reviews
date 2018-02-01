@@ -11,7 +11,8 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
     creator_id: user1.id,
-    magic_school: school
+    magic_school: school,
+    origin: "Microsoft"
     )
   }
   let!(:clippy1) { Wizard.new(
@@ -19,7 +20,8 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
     creator_id: user2.id,
-    magic_school: school
+    magic_school: school,
+    origin: "Microsoft"
     )
   }
 
@@ -36,7 +38,8 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     description: "Installation Wizard",
     img_url: "www.microsoft.com",
     creator_id: user1.id,
-    magic_school: school
+    magic_school: school,
+    origin: "William Gates"
     )
   }
 

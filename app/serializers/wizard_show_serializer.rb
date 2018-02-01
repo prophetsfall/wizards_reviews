@@ -16,5 +16,4 @@ class WizardShowSerializer < ActiveModel::Serializer
     current_user
   end
 
-
 end
