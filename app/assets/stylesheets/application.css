@@ -16,10 +16,11 @@
 
  */
 #header {
-  color: #EFDB8A;
+  color: blue;
   text-align: center;
   font-family: "Impact";
-  background-image: url("wizardname.png");
+  background-image: url("scrolltexture.jpg");
+  border: 3px solid #65110C;
   width: 10em;
   margin: auto;
   border-radius: 20px;
@@ -29,100 +30,145 @@
   color: red;
   width: 15em;
   margin: auto;
-  background-image: url("descriptionbackround.png");
+  background: white;
   text-align: center;
 }
-#show{
-  border: 5px solid grey;
-  background: black;
+#show {
+  background-image: url("Red_Portal.png");
+  background-position: center;
+  background-size: 300px;
+  background-repeat: no-repeat;
   border-radius: 10px;
-  height: 20em;
+  height: 25em;
   margin: auto;
   margin-bottom: 20px;
-  width: 10em;
+  width: 15em;
   border-radius: 100px;
   padding: 10px;
 }
-
-#show #header{
-  color: pink;
-  font-size: 20px;
-}
-#show #description{
-  color: blue;
+#reviewscheck {
+  background-image: url("scroll.png");
+  color: white;
   text-align: center;
-  margin-top: 50px;
+  background-repeat: no-repeat;
+  text-align: center;
+  background-position: top;
+  background-size: auto;
+  padding: 1.8em;
 }
-body{
+#reviewscheck h3 {
+  color: #831E2C;
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+#reviewbody {
+  font-size: 20px;
+  color: #9D4242;
+}
+#reviewRating {
+  text-align: center;
+  color: #B35E58;
+}
+#linkage {
+  background: white;
+}
+
+
+
+
+body {
   background-image: url("newbackround.jpg");
   background-position: center;
-  background-size: contain;
 }
-#wizindex{
-  background: #8832B6;
+
+#wizindex {
   text-align: center;
   background-position: center;
   margin-left: 3em;
   margin-right: 3em;
   border-radius: 5em;
+  padding-bottom: 2.5em;
 }
-.indexclass{
-  text-align: center;
-}
-#wizindex #wizlist{
+
+#wizindex #wizlist {
   margin: auto;
   text-align: center;
 }
-#wizardElement{
+#wizardElement {
 border: 1.5px solid black;
 padding: 10px;
 margin-top: 10px;
 background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
-}
-#form{
-  background-image: url("73e71fd636407bd0e659f0f664dd136a.png");
-  background-repeat: no-repeat;
-  text-align: center;
-  background-position: top;
-  background-size: auto;
-  padding: 5em;
-}
-#form label{
-  font-size: 20px;
-  color: blue;
-}
-#form #label{
-  position: relative;
-  top: -50px;
-  padding-bottom: 1em;
-  color: #855831;
-  font-family: "Impact";
-  font-size: 50px;
 
 }
-#form input{
+ul {
+  list-style-type: none;
+}
+#form {
+  background-image: url("scrolltexture.jpg");
+  text-align: center;
+  width: 25em;
+  margin: auto;
+}
+
+#form h4 {
+  padding-top: 10px;
+  color: black;
+}
+
+
+#form input {
   margin-top: 5em;
   padding-top: 3em;
   width: 20em;
   margin: auto;
 }
-.radio #radio{
-  color: pink;
-}
-#newWizard{
+
+#newWizard {
   text-align: center;
   color: #D16642;
   font-size: 2.5em;
   font-family: "Impact";
 }
-#newWizard label{
+#newWizard label {
   text-align: left;
   color: #8832B7;
   font-size: 20px;
 }
+
+
+#reviewForm {
+  text-align: center;
+  background: white;
 }
-.text_area {
-  background: green;
+#loginform {
+  background: white;
 }
-#reviewForm{
+#loginform body {
+  background: white;
+}
+#edituser {
+background: white;
+}
+#newuser {
+  background: white;
+}
+#deviseConfirm {
+  background: white;
+}
+#editPassword {
+background: white;
+}
+#forgotPassword {
+  background: white;
+}
+#footer {
+  text-align: center;
+  background-image: url("scrolltexture.jpg");
+  border: 3px solid #5C1912;
+  width: 500px;
+  margin: auto;
+  font-weight: 200px;
+  padding-top: 10px;
 }

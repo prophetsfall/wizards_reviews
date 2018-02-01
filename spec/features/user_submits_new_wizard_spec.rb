@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'New wizard Form' do
   let!(:user2) {FactoryBot.create(:user, role: "member")}
+  let!(:school) {MagicSchool.create(name: 'Necromancy')}
 
   scenario 'signed in user submits a valid form' do
     visit '/'
@@ -12,6 +13,8 @@ describe 'New wizard Form' do
     visit 'wizards/new'
     fill_in 'Name', with: 'Mr McGee'
     fill_in 'Description', with: "He's a good wizard"
+    fill_in 'Author/series of origin:', with: 'Pamela Allen'
+    select ('Necromancy'), from: "School of Magic"
     click_button "Submit"
     expect(page).to have_content 'Wizard added successfully'
   end

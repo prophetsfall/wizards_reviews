@@ -8,6 +8,7 @@ class WizardsController < ApplicationController
   end
 
   def new
+    @magic_schools = MagicSchool.all
     if current_user
       @wizard = Wizard.new
     else
@@ -61,9 +62,8 @@ class WizardsController < ApplicationController
     @wizard = Wizard.find(params[:id])
     if (current_user.id == @wizard.creator_id) || current_user.role == 'admin'
       if @wizard.destroy
-        reviews = Review.where(wizard_id: params[:id]).delete_all
         redirect_to wizards_path
-        flash[:notice] = "Wizard and #{reviews} reviews deleted successfully"
+        flash[:notice] = "Wizard and reviews deleted successfully"
       else
         flash[:notice] = 'Wizard deletion failed'
         render :edit
@@ -76,6 +76,6 @@ class WizardsController < ApplicationController
   protected
 
   def wizard_params
-    params.require(:wizard).permit(:name, :description, :img_url)
+    params.require(:wizard).permit(:name, :description, :img_url, :magic_school_id, :origin)
   end
 end

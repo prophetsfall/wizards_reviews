@@ -18,8 +18,9 @@ const ReviewForm = (props) => {
   return(
     <div>
       <form id="form">
+        <h4>Review Form</h4>
 
-        <label id="label">Review Form
+        <label>
           <input
             type="text"
             name="reviewForm"
@@ -28,7 +29,7 @@ const ReviewForm = (props) => {
             onChange={props.passDownReviewChange}
           />
         </label>
-        <div className="radio">
+        <div  id="radio" className="radio">
         {buttons}
         </div>
         <div className="button-group">

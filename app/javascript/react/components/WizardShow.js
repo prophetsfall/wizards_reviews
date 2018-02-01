@@ -5,7 +5,7 @@ const WizardShow = (props) => {
   let editForm = () =>{
     let editLink;
   if (props.creator_id === props.user_id) {
-      editLink = <a href={`/wizards/${props.id}/edit`}>Edit or Delete your Wizard here</a>
+      editLink = <a href={`/wizards/${props.id}/edit`} id="linkage">Edit or Delete your Wizard here</a>
   } else {
       <p></p>
   }
@@ -20,14 +20,12 @@ const WizardShow = (props) => {
           <h1>{props.rating}</h1>
         </div>
       </div>
+
       <div id="footer">
-        <p id="description">{props.description}</p>
+        <p>Lore: {props.description}</p>
       </div>
       <div>
         {editForm()}
-      </div>
-      <div id="reviews">
-        {props.reviews}
       </div>
     </div>
   )

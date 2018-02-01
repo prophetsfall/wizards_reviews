@@ -4,18 +4,24 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
   let!(:user1) {FactoryBot.create(:user, role: "admin")}
   let!(:user2) {FactoryBot.create(:user, role: "member")}
 
+  let!(:school) {MagicSchool.create(name: 'evocation')}
+
   let!(:clippy) { Wizard.create(
     name: "Clippy",
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
-    creator_id: user1.id
+    creator_id: user1.id,
+    magic_school: school,
+    origin: "Microsoft"
     )
   }
   let!(:clippy1) { Wizard.new(
     name: "Clippy1",
     description: "Unacceptably helpful word wizard",
     img_url: "www.clippy.com",
-    creator_id: user2.id
+    creator_id: user2.id,
+    magic_school: school,
+    origin: "Microsoft"
     )
   }
 
@@ -31,7 +37,9 @@ RSpec.describe Api::V1::WizardsController, type: :controller do
     name: "Microsoft",
     description: "Installation Wizard",
     img_url: "www.microsoft.com",
-    creator_id: user1.id
+    creator_id: user1.id,
+    magic_school: school,
+    origin: "William Gates"
     )
   }
 

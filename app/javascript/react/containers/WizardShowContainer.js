@@ -80,13 +80,15 @@ class WizardShowContainer extends Component {
           name={this.state.wizard.name}
           id={this.state.wizard.id}
           description={this.state.wizard.description}
-          imgUrl={this.state.wizard.img_url}
+          imgUrl={this.state.wizard.image_path}
           rating={this.state.wizard.rating}
-          reviews={this.state.reviews}
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user.id}
         />
-        {reviewArray}
+        <div id="reviewscheck">
+          <h3>Reviews</h3>
+          {reviewArray}
+        </div>
         <ReviewFormContainer
           addNewReview={this.addNewReview}
           wizardId={this.state.wizard.id}
