@@ -10,14 +10,13 @@ class WizardShowContainer extends Component {
     this.state = {
       user: {},
       wizard: {},
-      reviews: [],
-      fetchMethod: "post",
-      apiPath: "/api/v1/reviews"
+      reviews: []
     }
     this.addNewReview = this.addNewReview.bind(this)
+    this.getReviews = this.getReviews.bind(this)
+    this.deleteReview = this.deleteReview.bind(this)
   }
-
-  componentDidMount() {
+  getReviews() {
     let wizardId = this.props.params.id;
     fetch(`/api/v1/wizards/${wizardId}`, {credentials: 'same-origin'})
     .then(response => {
@@ -30,21 +29,20 @@ class WizardShowContainer extends Component {
       }
     })
     .then(response => response.json())
-    .then(body => {
+    .then(body => {console.log(body)
       this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  componentDidMount() {
+    this.getReviews()
+  }
+
   addNewReview(formPayload) {
-    if (this.state.wizard.user_reviews) {
-      if (this.state.wizard.user_reviews.length>0) {
-        this.setState({fetchMethod: "patch", apiPath:"/api/v1/review"})
-      }
-    }
-    fetch(`${this.state.apiPath}/${this.state.wizard.user_reviews[0].id}`, {
+    fetch('/api/v1/reviews', {
       credentials: 'same-origin',
-      method: `${this.state.fetchMethod}`,
+      method: 'post',
       body: JSON.stringify(formPayload),
       headers: {
         'Content-Type': 'application/json',
@@ -62,10 +60,31 @@ class WizardShowContainer extends Component {
       }
     })
     .then(response => response.json())
-    .then(body => {
-      let newReviewsArray = this.state.reviews.concat(body.review)
-      this.setState({ reviews: newReviewsArray })
+    .then( this.getReviews())
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  deleteReview(formPayload) {
+    fetch(`/api/v1/reviews/${formPayload.review.review_id}`, {
+      credentials: 'same-origin',
+      method: 'delete',
+      body: JSON.stringify(formPayload),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
+      }
     })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then( this.getReviews())
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -87,9 +106,14 @@ class WizardShowContainer extends Component {
         reviewForm = (
           <ReviewFormContainer
             addNewReview={this.addNewReview}
-            wizardId={this.state.wizard_id}
+            wizardId={this.state.wizard.id}
             body={this.state.wizard.user_reviews[0].body}
             rating={this.state.wizard.user_reviews[0].rating}
+            reviewId={this.state.wizard.user_reviews[0].id}
+            creatorId={this.state.wizard.user_reviews[0].user_id}
+            userId={this.state.user.id}
+            deleteReview={this.deleteReview}
+
           />
           )
         } else {
