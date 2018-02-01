@@ -11,47 +11,33 @@ const ReviewTile = props => {
     if (props.voted === -1) {
       return (
         <div>
-          <i
-            id="downvote"
-            className="selected fas fa-arrow-down"
-            onClick={handleClick}
-          ></i>{votes}
-          <i
-            id="upvote"
-            className="fas fa-arrow-up"
-            onClick={handleClick}
-          ></i>
+          <span onClick={handleClick}>
+            <i id="downvote" className="selected fas fa-arrow-down" ></i>
+          </span> {votes} <span onClick={handleClick}>
+            <i id="upvote" className="fas fa-arrow-up" ></i>
+          </span>
         </div>
       )
     } else if (props.voted === 1) {
       return (
         <div>
-          <i
-            id="downvote"
-            className="fas fa-arrow-down"
-            onClick={handleClick}
-          ></i> {votes}
-          <i
-            id="upvote"
-            className="selected fas fa-arrow-up"
-            onClick={handleClick}
-          ></i>
+          <span onClick={handleClick}>
+            <i id="downvote" className="fas fa-arrow-down" ></i>
+          </span> {votes} <span onClick={handleClick}>
+            <i id="upvote" className="selected fas fa-arrow-up" ></i>
+          </span>
         </div>
       )
     } else {
       return (
         <div>
-          <i id="downvote"
-            className="fas fa-arrow-down"
-            onClick={handleClick}
-          ></i> {votes}
-          <i
-            id="upvote"
-            className="fas fa-arrow-up"
-            onClick={handleClick}
-          ></i>
+          <span onClick={handleClick}>
+            <i id="downvote" className="fas fa-arrow-down" ></i>
+          </span> {votes} <span onClick={handleClick}>
+            <i id="upvote" className="fas fa-arrow-up" ></i>
+          </span>
         </div>
-    )
+      )
     }
   }
   let handleClick = (event) => {
@@ -80,7 +66,7 @@ const ReviewTile = props => {
       <p> {body}</p>
       <p> {rating}</p>
       {upvoter()}
-      </div>
+    </div>
   )
 }
 export default ReviewTile;
