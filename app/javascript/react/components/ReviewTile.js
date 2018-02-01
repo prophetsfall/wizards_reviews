@@ -76,7 +76,7 @@ const ReviewTile = props => {
   }
 
   return(
-    <div id='reviewscheck'>
+    <div>
       <p> {body}</p>
       <p> {rating}</p>
       {upvoter()}

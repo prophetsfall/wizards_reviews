@@ -181,8 +181,11 @@ class WizardShowContainer extends Component {
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user_id}
         />
+        <div id='reviewscheck'>
         {reviewArray}
+        </div>
         {reviewForm}
+
       </div>
     )
   }
