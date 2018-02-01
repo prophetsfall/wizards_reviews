@@ -1,7 +1,8 @@
 class Api::V1::WizardsController < ApplicationController
 
   def index
-    render json: Wizard.all
+    all_wizards = Wizard.all
+     render json: all_wizards, each_serializer: WizardShowSerializer
   end
 
   def show
