@@ -8,7 +8,7 @@ class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user_id: null,
       wizard: {},
       reviews: []
     }
@@ -30,7 +30,11 @@ class WizardShowContainer extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
+      let user
+      if (body.wizard.user) {
+        user = body.wizard.user.id
+      }
+      this.setState({ user_id: user, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -116,7 +120,6 @@ class WizardShowContainer extends Component {
         />
       )
     })
-
     return(
       <div>
         <WizardShow
@@ -126,7 +129,7 @@ class WizardShowContainer extends Component {
           imgUrl={this.state.wizard.image_path}
           rating={this.state.wizard.rating}
           creator_id={this.state.wizard.creator_id}
-          user_id={this.state.user.id}
+          user_id={this.state.user_id}
         />
         {reviewArray}
         <ReviewFormContainer
