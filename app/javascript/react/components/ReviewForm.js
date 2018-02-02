@@ -20,8 +20,7 @@ const ReviewForm = (props) => {
     <div>
       <form id="form">
         <label id="label">Review Form
-          <input
-            type="text"
+          <textarea
             name="reviewForm"
             id="reviewForm"
             value={props.bodyText}
@@ -31,7 +30,7 @@ const ReviewForm = (props) => {
         <StarsRating
           rating={props.rating/20}
           onRatingClick={props.onStarClick}
-          theme={'lightPurple'}
+          theme={'yellow'}
         />
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>
