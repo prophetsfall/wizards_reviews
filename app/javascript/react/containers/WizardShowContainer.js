@@ -10,7 +10,8 @@ class WizardShowContainer extends Component {
     this.state = {
       user_id: 0,
       wizard: {},
-      reviews: []
+      reviews: [],
+      averageRating: "X",
     }
     this.addNewReview = this.addNewReview.bind(this)
     this.getReviews = this.getReviews.bind(this)
@@ -37,13 +38,21 @@ class WizardShowContainer extends Component {
       } else {
         user_id = 0
       }
-      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews })
+      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews})
+      if (body.wizard.average_rating == "No Reviews") {
+        this.setState({ averageRating: "X"})
+      } else {
+        this.setState({ averageRating: body.wizard.average_rating})
+      }
+
+
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount() {
     this.getReviews()
+
   }
 
   addNewReview(formPayload) {
@@ -184,11 +193,12 @@ class WizardShowContainer extends Component {
           id={this.state.wizard.id}
           description={this.state.wizard.description}
           imgUrl={this.state.wizard.image_path}
-          rating={this.state.wizard.rating}
+          rating={this.state.averageRating}
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user_id}
         />
         <div id='reviewscheck'>
+          <h1 id="reviewTitle">Reviews</h1>
         {reviewArray}
         </div>
         {reviewForm}

@@ -4,8 +4,8 @@ import { browserHistory } from 'react-router';
 const BackButton = (props) => {
 
   return(
-    <div>
-      <button onClick={browserHistory.goBack}>Back</button>
+    <div   >
+      <button id="backButton" onClick={browserHistory.goBack}>Back</button>
     </div>
   )
 }
