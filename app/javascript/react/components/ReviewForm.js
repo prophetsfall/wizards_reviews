@@ -1,4 +1,5 @@
 import React from 'react';
+import StarsRating from 'react-stars-rating'
 
 const ReviewForm = (props) => {
   let valueRange = ['20', '40', '60', '80', '100']
@@ -14,6 +15,7 @@ const ReviewForm = (props) => {
       </label>
     )
   })
+
   return(
     <div>
       <form id="form">
@@ -26,9 +28,10 @@ const ReviewForm = (props) => {
             onChange={props.passDownReviewChange}
           />
         </label>
-        <div  id="radio" className="radio">
-        {buttons}
-        </div>
+        <StarsRating
+          rating={props.rating/20}
+          onRatingClick={props.onStarClick}
+        />
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>
           <button onClick={props.passDownDelete}>Delete Review</button>
@@ -36,17 +39,17 @@ const ReviewForm = (props) => {
       </form>
     </div>
   )
-  }
+}
 
-  const RadioButton = (props) => {
-    return(
-      <div>
-        <input name="rating" type="radio"     value={props.value}
-          checked={props.rating===props.value}
-          onChange={props.passDownRatingChange}
-        />
-      </div>
+const RadioButton = (props) => {
+  return(
+    <div>
+      <input name="rating" type="radio"     value={props.value}
+        checked={props.rating===props.value}
+        onChange={props.passDownRatingChange}
+      />
+    </div>
 
-    )
-  }
+  )
+}
 export default ReviewForm;

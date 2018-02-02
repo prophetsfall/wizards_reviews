@@ -203,3 +203,18 @@ background: white;
 #indexbig{
   font-size: 2em;
 }
+
+.starsContainer{
+  margin: 0 auto;
+}
+.star {
+  color: grey;
+  float: left;
+}
+.clickedStar {
+  float: left;
+  color: #ffe900;
+}
+
+
+

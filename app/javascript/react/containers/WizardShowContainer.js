@@ -47,6 +47,7 @@ class WizardShowContainer extends Component {
   }
 
   addNewReview(formPayload) {
+    debugger
     fetch('/api/v1/reviews', {
       credentials: 'same-origin',
       method: 'post',
@@ -171,6 +172,7 @@ class WizardShowContainer extends Component {
             <ReviewFormContainer
               addNewReview={this.addNewReview}
               wizardId={this.state.wizard.id}
+              rating={5}
             />
           )
         }
