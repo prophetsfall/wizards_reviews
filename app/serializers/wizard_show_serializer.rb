@@ -9,7 +9,7 @@ class WizardShowSerializer < ActiveModel::Serializer
     object.reviews.where(user: scope)
   end
   def image_path
-    object.img_url.path
+    object.img_url.url
   end
 
   def user
