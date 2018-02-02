@@ -24,6 +24,7 @@ const WizardShow = (props) => {
       </div>
       <div id="footer">
         <p>Lore: {props.description}</p>
+        <p>School of Magic: {props.school}</p>
       </div>
       <div>
         {editForm()}
