@@ -31,6 +31,7 @@ const ReviewForm = (props) => {
         <StarsRating
           rating={props.rating/20}
           onRatingClick={props.onStarClick}
+          theme={'lightPurple'}
         />
         <div className="button-group">
           <button onClick={props.passDownSubmit}>Submit Review</button>

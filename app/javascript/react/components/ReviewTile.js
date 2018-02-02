@@ -2,7 +2,12 @@ import React from 'react';
 
 const ReviewTile = props => {
   let body = props.body
-  let rating = props.rating
+  let rating =[]
+  for (let i = 0; i < props.rating/20; i++){
+    rating.push(
+        <i className="fas fa-star clickedStar"></i>
+    )
+  }
   let created_at = props.created_at
   let votes = props.votes
   let handleClick = (event) => {
