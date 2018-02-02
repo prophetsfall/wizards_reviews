@@ -22,7 +22,6 @@ const ReviewForm = (props) => {
         <label id="label">Review Form
           <textarea
             name="reviewForm"
-            id="reviewForm"
             value={props.bodyText}
             onChange={props.passDownReviewChange}
           />
@@ -33,8 +32,8 @@ const ReviewForm = (props) => {
           theme={'yellow'}
         />
         <div className="button-group">
-          <button onClick={props.passDownSubmit}>Submit Review</button>
-          <button onClick={props.passDownDelete}>Delete Review</button>
+          <button id="submitReviewButton" onClick={props.passDownSubmit}>Submit Review</button>
+          <button id="deleteReviewButton" onClick={props.passDownDelete}>Delete Review</button>
         </div>
       </form>
     </div>
