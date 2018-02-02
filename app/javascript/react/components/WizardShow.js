@@ -4,13 +4,13 @@ import ReviewTile from './ReviewTile'
 const WizardShow = (props) => {
   let editForm = () =>{
     let editLink;
-  if (props.creator_id === props.user_id) {
-      editLink = <a href={`/wizards/${props.id}/edit`} id="linkage">Edit or Delete your Wizard here</a>
-  } else {
-      <p></p>
+    if (props.creator_id === props.user_id) {
+        editLink = <a href={`/wizards/${props.id}/edit`}>Edit or Delete your Wizard here</a>
+    } else {
+        <p></p>
+    }
+    return editLink
   }
-  return editLink
-}
 
   return(
 

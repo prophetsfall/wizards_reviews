@@ -28,6 +28,6 @@ describe('WizardShow', ()=>{
 
  it('Should return html with the data from props', () => {
    expect(wrapper.find('h1').at(0)).toHaveText('Ian')
-   expect(wrapper.find('p').at(0)).toHaveText('A description')
+   expect(wrapper.find('p').at(0)).toHaveText('Lore: A description')
  })
 })

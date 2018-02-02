@@ -23,7 +23,7 @@
   background-size: cover;
   text-align: center;
   font-family: "Impact";
-  background-image: url("scrolltexture.jpg");
+  background: image-url("scrolltexture.jpg") no-repeat;
   border: 3px solid #65110C;
   width: 10em;
   margin: auto;
@@ -38,7 +38,7 @@
   text-align: center;
 }
 #show {
-  background-image: url("Red_Portal.png");
+  background: image-url("Red_Portal.png") no-repeat;
   background-position: center;
   background-size: 300px;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@
 
 }
 #reviewscheck {
-  background-image: url("scroll.png");
+  background: image-url("scroll.png") no-repeat;
   color: white;
   text-align: center;
   background-repeat: no-repeat;
@@ -94,8 +94,7 @@
 
 
 body {
-  background-image: url("newbackround.jpg");
-  background-repeat: no-repeat;
+  background: image-url("newbackround.jpg") no-repeat;
 }
 
 #wizindex {
@@ -127,11 +126,10 @@ ul {
   list-style-type: none;
 }
 #form {
-  background-image: url("scrolltexture.jpg");
+  background: image-url("scrolltexture.jpg") no-repeat;
   text-align: center;
   width: 25em;
   margin: auto;
-  background-repeat: no-repeat;
   margin-top: 2em;
   height: 1000px;
 }
@@ -189,7 +187,7 @@ background: white;
 }
 #footer {
   text-align: center;
-  background-image: url("scrolltexture.jpg");
+  background: image-url("scrolltexture.jpg") no-repeat;
   border: 3px solid #5C1912;
   width: 500px;
   margin: auto;

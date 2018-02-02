@@ -8,15 +8,16 @@ class WizardShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user_id: 0,
       wizard: {},
       reviews: []
     }
     this.addNewReview = this.addNewReview.bind(this)
+    this.getReviews = this.getReviews.bind(this)
+    this.deleteReview = this.deleteReview.bind(this)
     this.alterVote = this.alterVote.bind(this)
   }
-
-  componentDidMount() {
+  getReviews() {
     let wizardId = this.props.params.id;
     fetch(`/api/v1/wizards/${wizardId}`, {credentials: 'same-origin'})
     .then(response => {
@@ -24,15 +25,25 @@ class WizardShowContainer extends Component {
         return response;
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
+        error = new Error(errorMessage);
         throw(error);
       }
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ user: body.wizard.user, wizard: body.wizard, reviews: body.wizard.reviews })
+      let user_id
+      if(body.wizard.user){
+        user_id = body.wizard.user.id
+      } else {
+        user_id = 0
+      }
+      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  componentDidMount() {
+    this.getReviews()
   }
 
   addNewReview(formPayload) {
@@ -51,15 +62,36 @@ class WizardShowContainer extends Component {
         return response;
       } else {
         let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
+        error = new Error(errorMessage);
         throw(error);
       }
     })
     .then(response => response.json())
-    .then(body => {
-      let newReviewsArray = this.state.reviews.concat(body.review)
-      this.setState({ reviews: newReviewsArray })
+    .then( this.getReviews())
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  deleteReview(formPayload) {
+    fetch(`/api/v1/reviews/${formPayload.review.review_id}`, {
+      credentials: 'same-origin',
+      method: 'delete',
+      body: JSON.stringify(formPayload),
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
+      }
     })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then( this.getReviews())
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -116,7 +148,35 @@ class WizardShowContainer extends Component {
         />
       )
     })
+    let reviewForm;
+    let reviewId
+    if (this.state.wizard.user_reviews) {
+      if (this.state.wizard.user_reviews.length>0) {
+        reviewId = this.state.wizard.user_reviews[0].id
+        reviewForm = (
+          <ReviewFormContainer
+            addNewReview={this.addNewReview}
+            wizardId={this.state.wizard.id}
+            body={this.state.wizard.user_reviews[0].body}
+            rating={this.state.wizard.user_reviews[0].rating}
+            reviewId={reviewId}
+            creatorId={this.state.wizard.user_reviews[0].user_id}
+            userId={this.state.user_id}
+            deleteReview={this.deleteReview}
 
+          />
+          )
+        } else {
+          reviewForm = (
+            <ReviewFormContainer
+              addNewReview={this.addNewReview}
+              wizardId={this.state.wizard.id}
+            />
+          )
+        }
+      } else {
+        reviewForm= <p></p>
+      }
     return(
       <div>
         <WizardShow
@@ -126,16 +186,13 @@ class WizardShowContainer extends Component {
           imgUrl={this.state.wizard.image_path}
           rating={this.state.wizard.rating}
           creator_id={this.state.wizard.creator_id}
-          user_id={this.state.user.id}
+          user_id={this.state.user_id}
         />
-        <div id="reviewscheck">
-          <h3>Reviews</h3>
-          {reviewArray}
+        <div id='reviewscheck'>
+        {reviewArray}
         </div>
-        <ReviewFormContainer
-          addNewReview={this.addNewReview}
-          wizardId={this.state.wizard.id}
-        />
+        {reviewForm}
+
       </div>
     )
   }
