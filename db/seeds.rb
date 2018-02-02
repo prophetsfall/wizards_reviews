@@ -16,26 +16,25 @@ FactoryBot.define do
     role 'member'
   end
 end
-# bob = FactoryBot.create(:user)
-# steve = FactoryBot.create(:user)
-# jill = FactoryBot.create(:user)
+bob = FactoryBot.create(:user, role: "admin")
+steve = FactoryBot.create(:user)
+jill = FactoryBot.create(:user)
+abjuration = MagicSchool.find_or_create_by(name: "Abjuration")
+conjuration = MagicSchool.find_or_create_by(name: "Conjuration")
+divination = MagicSchool.find_or_create_by(name: "Divination")
+enchantment = MagicSchool.find_or_create_by(name: "Enchantment")
+evocation = MagicSchool.find_or_create_by(name: "Evocation")
+illusion = MagicSchool.find_or_create_by(name: "Illusion")
+necromancy = MagicSchool.find_or_create_by(name: "Necromancy")
+transmutation = MagicSchool.find_or_create_by(name: "Transmutation")
 
-abjuration = MagicSchool.find_or_create_by!(name: "Abjuration")
-conjuration = MagicSchool.find_or_create_by!(name: "Conjuration")
-divination = MagicSchool.find_or_create_by!(name: "Divination")
-enchantment = MagicSchool.find_or_create_by!(name: "Enchantment")
-evocation = MagicSchool.find_or_create_by!(name: "Evocation")
-illusion = MagicSchool.find_or_create_by!(name: "Illusion")
-necromancy = MagicSchool.find_or_create_by!(name: "Necromancy")
-transmutation = MagicSchool.find_or_create_by!(name: "Transmutation")
-
-gandalfa = Wizard.find_or_create_by!(name: "Gandalf the White", description: "Hes got to be top ten maybe 5", magic_school: conjuration)
-gandalfb = Wizard.find_or_create_by!(name: "Gandalf the Grey", description: "Hes great and all but he hidding", magic_school: conjuration)
-qwdion = Wizard.find_or_create_by!(name: "Gwydion", description: "Hes norse", magic_school: conjuration)
-merlin = Wizard.find_or_create_by!(name: "Merlin", description: "Super famouse wizard", magic_school: conjuration)
-jafar = Wizard.find_or_create_by!(name: "Jafar", description: "Hes from aladdin", magic_school: conjuration)
-maurgris = Wizard.find_or_create_by!(name: "Maugris", description: "Hes enchants matter in france", magic_school: conjuration)
-saruman = Wizard.find_or_create_by!(name: "Saruman", description: "Hes fights Gandalf", magic_school: conjuration)
+gandalfa = Wizard.find_or_create_by(name: "Gandalf the White", description: "Hes got to be top ten maybe 5", magic_school: conjuration)
+gandalfb = Wizard.find_or_create_by(name: "Gandalf the Grey", description: "Hes great and all but he hidding", magic_school: conjuration)
+qwdion = Wizard.find_or_create_by(name: "Gwydion", description: "Hes norse", magic_school: conjuration)
+merlin = Wizard.find_or_create_by(name: "Merlin", description: "Super famouse wizard", magic_school: conjuration)
+jafar = Wizard.find_or_create_by(name: "Jafar", description: "Hes from aladdin", magic_school: conjuration)
+maurgris = Wizard.find_or_create_by(name: "Maugris", description: "Hes enchants matter in france", magic_school: conjuration)
+saruman = Wizard.find_or_create_by(name: "Saruman", description: "Hes fights Gandalf", magic_school: conjuration)
 
 
 

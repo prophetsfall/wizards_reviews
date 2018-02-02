@@ -27,9 +27,9 @@ const ReviewTile = props => {
   }
 
   return(
-    <div>
+    <div id="scrolled">
       <p> {body}</p>
-      <p> {rating}</p>
+      <p id="ratingChange"> {rating/20}</p>
       <div>
         <a className="downvote" onClick={handleClick}>
           <i className="fas fa-arrow-down" ></i>

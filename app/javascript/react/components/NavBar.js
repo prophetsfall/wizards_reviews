@@ -5,7 +5,7 @@ import BackButton from './BackButton';
 const NavBar = (props) => {
 
   return(
-    <div>
+    <div >
       <BackButton />
       { props.children }
     </div>

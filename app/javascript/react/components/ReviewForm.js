@@ -21,7 +21,6 @@ const ReviewForm = (props) => {
           <input
             type="text"
             name="reviewForm"
-            id="reviewForm"
             value={props.bodyText}
             onChange={props.passDownReviewChange}
           />
@@ -30,8 +29,8 @@ const ReviewForm = (props) => {
         {buttons}
         </div>
         <div className="button-group">
-          <button onClick={props.passDownSubmit}>Submit Review</button>
-          <button onClick={props.passDownDelete}>Delete Review</button>
+          <button id="submitReviewButton" onClick={props.passDownSubmit}>Submit Review</button>
+          <button id="deleteReviewButton" onClick={props.passDownDelete}>Delete Review</button>
         </div>
       </form>
     </div>
