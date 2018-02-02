@@ -28,5 +28,6 @@ yarn-error.log*
 .env
 
 /public/uploads
+/app/assets/images
 
 *.DS_Store
