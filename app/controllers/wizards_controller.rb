@@ -20,6 +20,7 @@ class WizardsController < ApplicationController
     if current_user
       @wizard = Wizard.new(wizard_params)
       @wizard.creator_id = current_user.id
+
       if @wizard.save
         redirect_to wizard_path(@wizard.id)
         flash[:notice] = 'Wizard added successfully'

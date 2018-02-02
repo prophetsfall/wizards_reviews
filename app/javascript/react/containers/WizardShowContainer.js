@@ -10,6 +10,7 @@ class WizardShowContainer extends Component {
     this.state = {
       user_id: 0,
       wizard: {},
+      school: null,
       reviews: []
     }
     this.addNewReview = this.addNewReview.bind(this)
@@ -37,7 +38,7 @@ class WizardShowContainer extends Component {
       } else {
         user_id = 0
       }
-      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews })
+      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews, school: body.wizard.magic_school.name })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -189,6 +190,7 @@ class WizardShowContainer extends Component {
           rating={this.state.wizard.rating}
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user_id}
+          school={this.state.school}
         />
         <div id='reviewscheck'>
           <div>
