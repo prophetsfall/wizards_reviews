@@ -1,6 +1,5 @@
 import React from 'react';
 
-<<<<<<< current
 const ReviewTile = props => {
   let body = props.body
   let rating = props.rating
@@ -38,13 +37,6 @@ const ReviewTile = props => {
           <i className="fas fa-arrow-up" ></i>
         </a>
       </div>
-=======
-const ReviewTile = (props) => {
-
-  return(
-    <div>
-      text
->>>>>>> before discard
     </div>
   )
 }
