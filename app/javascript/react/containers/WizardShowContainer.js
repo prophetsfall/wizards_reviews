@@ -11,8 +11,10 @@ class WizardShowContainer extends Component {
       user_id: 0,
       wizard: {},
       reviews: [],
-      averageRating: "X",
-    }
+      school: null,
+      averageRating: "X"
+     }
+
     this.addNewReview = this.addNewReview.bind(this)
     this.getReviews = this.getReviews.bind(this)
     this.deleteReview = this.deleteReview.bind(this)
@@ -196,6 +198,7 @@ class WizardShowContainer extends Component {
           rating={this.state.averageRating}
           creator_id={this.state.wizard.creator_id}
           user_id={this.state.user_id}
+          school={this.state.school}
         />
         <div id='reviewscheck'>
           <h1 id="reviewTitle">Reviews</h1>

@@ -30,7 +30,6 @@ class WizardsContainer extends Component {
 
   render(){
      let wizardObjects = this.state.wizards.map((wizard) => {
-
        return(
          <WizardTile
            key={wizard.name}
