@@ -22,7 +22,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       @request.env["devise.mapping"] = Devise.mappings[:admin]
       admin = FactoryBot.create(:user, role: "admin")
 
-      user1 = FactoryBot.create(:user)
+      user1 = FactoryBot.create(:user, role: "member")
       user2 = FactoryBot.create(:user)
       sign_in :user, user1 # sign_in(scope, resource)
 

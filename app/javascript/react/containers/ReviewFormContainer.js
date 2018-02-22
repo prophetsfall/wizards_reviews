@@ -11,18 +11,17 @@ class ReviewFormContainer extends Component {
     }
     this.reviewChange = this.reviewChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.ratingChange = this.ratingChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
-  }
-
-  ratingChange(event) {
-    let value = event.target.value
-    this.setState({ rating: value })
+    this.onStarClick = this.onStarClick.bind(this)
   }
 
   reviewChange(event) {
     let value = event.target.value
     this.setState({ bodyText: value })
+  }
+  onStarClick(value) {
+    console.log(value)
+    this.setState({ rating: value*20 })
   }
 
   handleSubmit(event) {
@@ -51,7 +50,7 @@ class ReviewFormContainer extends Component {
 
   render() {
     let passDownReviewChange = (event) => { this.reviewChange(event) }
-    let passDownRatingChange = (event) => { this.ratingChange(event) }
+    // let passDownRatingChange = (event) => { this.ratingChange(event) }
 
     return(
       <div>
@@ -59,7 +58,7 @@ class ReviewFormContainer extends Component {
           bodyText={this.state.bodyText}
           rating={this.state.rating}
           passDownReviewChange={passDownReviewChange}
-          passDownRatingChange={passDownRatingChange}
+          onStarClick={this.onStarClick}
           passDownSubmit={this.handleSubmit}
           passDownDelete={this.handleDelete}
         />
