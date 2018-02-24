@@ -40,9 +40,14 @@ class WizardShowContainer extends Component {
       } else {
         user_id = 0
       }
-      this.setState({ user_id: user_id, wizard: body.wizard, reviews: body.wizard.reviews})
-      if (body.wizard.average_rating == "No Reviews") {
-        this.setState({ averageRating: "X"})
+      this.setState({
+        user_id: user_id,
+        wizard: body.wizard,
+        reviews: body.wizard.reviews,
+        school: body.wizard.magic_school.name
+      })
+      if (body.wizard.average_rating == "NA") {
+        this.setState({ averageRating: "NA"})
       } else {
         this.setState({ averageRating: body.wizard.average_rating})
       }
@@ -58,7 +63,6 @@ class WizardShowContainer extends Component {
   }
 
   addNewReview(formPayload) {
-    debugger
     fetch('/api/v1/reviews', {
       credentials: 'same-origin',
       method: 'post',
@@ -142,6 +146,7 @@ class WizardShowContainer extends Component {
   }
 
   render() {
+    debugger
     let reviewArray = this.state.reviews.map((review) => {
       let voted = 0;
       if (review.user_votes.length === 1) {
@@ -204,9 +209,6 @@ class WizardShowContainer extends Component {
         />
         <div id='reviewscheck'>
           <div>
-            <br/>
-            <br/>
-            <br/>
             <br/>
             <br/>
           </div>

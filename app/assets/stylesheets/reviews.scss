@@ -1,0 +1,61 @@
+
+#reviewscheck {
+  background: image-url("scroll.png") no-repeat;
+  color: black;
+  text-align: bottom;
+  background-repeat: no-repeat;
+
+  background-position: top;
+  padding-top: 7.5em;
+  opacity: .8;
+}
+#reviewscheck img{
+  padding-top: 50px;
+}
+#reviewscheck h3 {
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+#reviewbody {
+  font-size: 20px;
+  color: #9D4242;
+}
+#reviewRating {
+  text-align: center;
+  color: #B35E58;
+}
+.reviewTile {
+  color:black;
+}
+#scrolled{
+  padding-bottom: 2.5em;
+}
+#ratingChange{
+  background: blue;
+  width: 30px;
+  margin: auto;
+}
+
+#linkage {
+  color: #3D888E;
+  background: #072E36;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 2em;
+  text-align: left;
+}
+
+
+
+#submitReviewButton{
+  background: #8441B3;
+  border: 2px solid black;
+  margin-right: 2px;
+}
+#deleteReviewButton{
+  background: #8441B3;
+  border: 2px solid black;
+  margin-left: 2px;
+}

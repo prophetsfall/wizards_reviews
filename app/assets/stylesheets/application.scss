@@ -15,6 +15,10 @@
  *= require foundation_and_overrides
 
  */
+ .nav {
+   background: image-url("newbackround.jpg") no-repeat;
+   background-size: cover;
+ }
  #error_explanation{
    background: white;
    color: red;
@@ -44,159 +48,13 @@
   background: white;
   text-align: center;
 }
-#show {
-  background: image-url("Red_Portal.png") no-repeat;
-  background-position: center;
-  background-size: 300px;
-  background-repeat: no-repeat;
-  border-radius: 10px;
-  height: 25em;
-  margin: auto;
-  margin-bottom: 20px;
-  width: 15em;
-  border-radius: 100px;
-  padding: 1em;
-  overflow: hidden;
-}
-#show img{
-  position:relative;left:42px;top:80px;
-  border-radius: 40px;
-  height: 200px;
-  width: 125px;
-  overflow: hidden;
-
-}
-#reviewscheck {
-  background: image-url("scroll.png") no-repeat;
-  color: white;
-  text-align: bottom;
-  background-repeat: no-repeat;
-  text-align: center;
-  background-position: top;
-  padding-top: 7.5em;
-}
-#reviewscheck img{
-  padding-top: 50px;
-}
-#reviewscheck h3 {
-  color: #831E2C;
-  font-size: 50px;
-  font-weight: bold;
-  padding-bottom: 1em;
-}
-#reviewbody {
-  font-size: 20px;
-  color: #9D4242;
-}
-#reviewRating {
-  text-align: center;
-  color: #B35E58;
-}
-#reviewTitle {
-  color:white;
-}
-#scrolled{
-  padding-bottom: 2.5em;
-}
-#ratingChange{
-  background: blue;
-  width: 30px;
-  margin: auto;
-}
-#rattingBubble{
-  background: white;
-  width: 75px;
-  text-align: center;
-  color:white;
-  padding: 5px;
-  background: black;
-  border: 4px solid grey;
-  border-radius: 40px;
-  margin-top: 70px;
-  overflow: visible;
-}
-#linkage {
-  color: #3D888E;
-  background: #072E36;
-  margin-left: 10px;
-  margin-top: 10px;
-  font-size: 2em;
-  text-align: left;
-}
-
-
-
-
-body {
-  background: image-url("newbackround.jpg") no-repeat;
-}
-
-#wizindex {
-  text-align: center;
-  background-position: center;
-  margin-left: 3em;
-  margin-right: 3em;
-  border-radius: 5em;
-  margin-bottom: 5em;
-}
-
-#wizindex #wizlist {
-  margin: auto;
-  text-align: center;
-}
-#wizardElement {
-border: 1.5px solid black;
-padding-top: 40px;
-padding-bottom: 10px;
-margin-top: 15px;
-width: auto;
-height: auto;
-margin-left: auto;
-margin-right: auto;
-columns: 3;
-background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
-}
-#wizardWatch{
-  background: image-url("logo-4.png");
-  background-position: center;
-  background-size: 500px;
-  background-repeat: no-repeat;
-  height: 200px;
-  color:black;
-  width: 500px;
-  margin: auto;
-  padding: 10px;
-  margin-bottom: 50px;
-}
-#submitReviewButton{
-  background: #8441B3;
-  border: 2px solid black;
-  margin-right: 2px;
-}
-#deleteReviewButton{
-  background: #8441B3;
-  border: 2px solid black;
-  margin-left: 2px;
+.signIn {
+  padding-right: 50px;
 }
 #backButton{
   background: #8247B1;
   margin-top: 5px;
   margin-left: 5px;
-}
-#editYourWizard{
-  color: #0E8C8E;
-  background: #012C39;
-  margin-left: 50px;
-}
-#deleteYourWizard {
-  background: white;
-  width: 300px;
-}
-#editWizardForm{
-  background: white;
-  text-align: center;
-  width: 400px;
-  margin: auto;
 }
 ul {
   list-style-type: none;
@@ -225,21 +83,6 @@ ul {
   margin: auto;
 }
 
-#newWizard {
-  text-align: center;
-  color: #D16642;
-  font-size: 2.5em;
-  font-family: "Impact";
-}
-#newWizard p{
-  width: 1000px;
-  margin: auto;
-}
-#newWizard label {
-  text-align: left;
-  color: #8832B7;
-  font-size: 20px;
-}
 
 
 #reviewForm {
@@ -248,6 +91,8 @@ ul {
 }
 #loginform {
   background: white;
+  width: 75%;
+  margin: auto;
 }
 #loginform body {
   background: white;
@@ -257,6 +102,8 @@ background: white;
 }
 #newuser {
   background: white;
+  width: 75%;
+  margin: auto;
 }
 #deviseConfirm {
   background: white;
@@ -307,8 +154,3 @@ margin-bottom: 10px;
 #superUser {
   background: white;
 }
-#submitWizard{
-  background: #863AB5;
-  font-size: 1.2em;
-}
-

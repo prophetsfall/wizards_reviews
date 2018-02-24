@@ -15,7 +15,7 @@ class Wizard < ApplicationRecord
       end
       sum/self.reviews.length
     else
-      "No Reviews"
+      "NA"
     end
   end
 end

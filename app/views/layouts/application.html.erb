@@ -32,8 +32,9 @@
             <li> <%= link_to 'Admin Dashboard', users_path %></li>
           <%- end -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-
-          <li><%= image_tag("https://s3.us-east-2.amazonaws.com/wizard-reviews-production/#{current_user.profile_photo.path}", height: '45', width: '45', alt: current_user.user_name) %></li>
+          <% if !current_user.profile_photo.path.nil? %>
+            <li><%= image_tag("https://s3.us-east-2.amazonaws.com/wizard-reviews-production/#{current_user.profile_photo.path}", height: '45', width: '45', alt: current_user.user_name) %></li>
+          <% end %>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
