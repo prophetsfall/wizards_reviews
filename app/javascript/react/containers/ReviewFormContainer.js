@@ -50,8 +50,6 @@ class ReviewFormContainer extends Component {
 
   render() {
     let passDownReviewChange = (event) => { this.reviewChange(event) }
-    // let passDownRatingChange = (event) => { this.ratingChange(event) }
-
     return(
       <div>
         <ReviewForm
@@ -62,7 +60,6 @@ class ReviewFormContainer extends Component {
           passDownSubmit={this.handleSubmit}
           passDownDelete={this.handleDelete}
         />
-
       </div>
     )
   }

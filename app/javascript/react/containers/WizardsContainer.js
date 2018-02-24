@@ -41,10 +41,12 @@ class WizardsContainer extends Component {
        )
     })
     return(
+      <div className="wizards">
       <div id="wizindex">
         <div id="wizardWatch"></div>
         {wizardObjects}
       </div>
+    </div>
     )
   }
 }

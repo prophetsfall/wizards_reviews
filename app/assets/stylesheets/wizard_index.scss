@@ -1,0 +1,42 @@
+
+.wizards {
+  background: image-url("newbackround.jpg") no-repeat;
+  background-size: cover;
+}
+
+#wizindex {
+  text-align: center;
+  background-position: center;
+  margin-left: 3em;
+  margin-right: 3em;
+  border-radius: 5em;
+}
+
+#wizindex #wizlist {
+  margin: auto;
+  text-align: center;
+}
+#wizardElement {
+border: 1.5px solid black;
+padding-top: 40px;
+padding-bottom: 10px;
+margin-top: 15px;
+width: auto;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+columns: 3;
+background: linear-gradient(180deg, white, green,yellow,purple, black 10%);
+}
+#wizardWatch{
+  background: image-url("logo-4.png");
+  background-position: center;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  height: 200px;
+  color:black;
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+  margin-bottom: 50px;
+}

@@ -34,15 +34,15 @@ const ReviewTile = props => {
   return(
     <div className='reviewTile'>
     <div className='row'>
-      <div className='small-1 columns'><br /></div>
-      <div className="small-1 columns">
+      <div className='small-1 small-offset-1 columns'><br /></div>
+      <div className="small-1 small-offset-1 columns ">
         <a className="downvote" onClick={handleClick}>
           <i className="fas fa-arrow-down" ></i>
         </a> {votes} <a className="upvote" onClick={handleClick}>
           <i className="fas fa-arrow-up" ></i>
         </a>
       </div>
-      <div className='small-10 columns'>
+      <div className='small-8 columns'>
         <div className="row">
           <div className="small-12 columns small-centered"> {body}</div>
         </div>
